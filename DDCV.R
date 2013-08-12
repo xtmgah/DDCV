@@ -18,5 +18,5 @@ is.installed("scatterplot3d")
 ## Run shiny 
 
 library(shiny)
-runApp("../DDCV")
+runApp("./DDCV")
 
