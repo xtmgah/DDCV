@@ -20,3 +20,5 @@ is.installed("scatterplot3d")
 library(shiny)
 runApp("./DDCV")
 
+### if you get error with runGist, try the following command ###
+#options(download.file.method="wget",download.file.extra=" --no-check-certificate")
