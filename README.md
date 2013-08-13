@@ -33,11 +33,11 @@ Test Data
 
 **Parameter Panel**
 
-![view](https://raw.github.com/xtmgah/DDCV/master/doc/panel.png)
+![view](https://raw.github.com/xtmgah/DDCV/master/doc/panel2.png)
 
 **IC50 Prediction**
 
-![view](https://raw.github.com/xtmgah/DDCV/master/doc/ic50.png)
+![view](https://raw.github.com/xtmgah/DDCV/master/doc/ic502.png)
 
 **Response Matrix Profile**
 
@@ -69,5 +69,5 @@ Test Data
 
 **Contour Plots of Raw Data**
 
-![view](https://raw.github.com/xtmgah/DDCV/master/doc/3d.png)
+![view](https://raw.github.com/xtmgah/DDCV/master/doc/contour.png)
 
