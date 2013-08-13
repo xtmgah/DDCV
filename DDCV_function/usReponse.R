@@ -73,6 +73,6 @@ usReponse <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   
   scatterplot3d(log(tdose1),log(tdose2),1-tfa,xlab=paste0("Log(",var.name[1]," dose)"),ylab=paste0("Log(",var.name[2]," dose)"),zlab="Effect",col.grid="lightblue",pch=20,type="h",color=c3d,lty.hplot=3,box=F,cex.symbols=1.4)  
   legend("topright",c("Synergy","Antagonism"),col=c("green4","red"),pch=20,bty="n")
-  return(sumtable3)
   title("Universal Surface Response")
+  return(sumtable3)
 }
