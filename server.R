@@ -7,13 +7,14 @@ shinyServer(function(input, output){
   
   datasetInput <- reactive({
     inFile <- input$file1
-    if (is.null(inFile)) {
-      return(NULL)
-    }
+    filepath <- ifelse(is.null(inFile),'./testdata/shapeBdata.csv',inFile$datapath)
+#    ifelse (is.null(inFile)) {
+#      return(NULL)
+#    }
     if (input$fty == "shapeA") {
-      shapeA(inFile$datapath,drug1=input$dname1,drug2=input$dname2,swap=input$swap)
+      shapeA(filepath,drug1=input$dname1,drug2=input$dname2,swap=input$swap)
     }else{
-      shapeB(inFile$datapath,drug1=input$dname1,drug2=input$dname2,swap=input$swap,threeColumn=1:3)
+      shapeB(filepath,drug1=input$dname1,drug2=input$dname2,swap=input$swap,threeColumn=1:3)
     }
     
   })
