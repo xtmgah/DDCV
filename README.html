@@ -170,7 +170,9 @@ hr {
 
 <h2>Downloading </h2>
 
+<blockquote>
 <p>Both through &ldquo;<em>git clone</em>&rdquo; or directly download comparessed file are avaiable:</p>
+</blockquote>
 
 <pre><code class="bash">git clone &quot;https://github.com/xtmgah/DDCV.git&quot;
 cd DDCV
@@ -178,7 +180,9 @@ cd DDCV
 
 <h2>Running</h2>
 
+<blockquote>
 <p>There are two methods runing with or without downloading software. </p>
+</blockquote>
 
 <p><strong>GitHub repository</strong>:</p>
 
@@ -187,7 +191,9 @@ options(download.file.method=&quot;wget&quot;,download.file.extra=&quot; --no-ch
 shiny::runGitHub(&#39;DDCV&#39;,&#39;xtmgah&#39;)
 </code></pre>
 
+<blockquote>
 <p>or</p>
+</blockquote>
 
 <pre><code class="R">library(shiny)
 options(download.file.method=&quot;wget&quot;,download.file.extra=&quot; --no-check-certificate&quot;)
@@ -199,17 +205,147 @@ runUrl(&#39;https://github.com/xtmgah/DDCV/archive/master.zip&#39;)
 <pre><code class="bash">cd DDCV
 </code></pre>
 
+<blockquote>
 <p>then</p>
+</blockquote>
 
 <pre><code class="R">library(shiny)
 runApp(&quot;../DDCV&quot;)
 </code></pre>
 
+<blockquote>
 <p>or </p>
+</blockquote>
 
 <pre><code class="R">library(shiny)
 source(&quot;DDCV.R&quot;)
 </code></pre>
+
+<h2>Input CSV foramt</h2>
+
+<p><strong>Matrix</strong></p>
+
+<p>|DrugB|10|10|8|8|6|6|4.5|4.5|3|3|2|2|1|1|0|0|
+|&mdash;-|&ndash;|&ndash;|-|-|-|-|&mdash;|&mdash;|-|-|-|-|-|-|-|-|
+|5|1609|1073|1459|1597|4112|3195|3709|3929|4661|5253|5539|5805|10590|10184|10931|15020|
+|5|1624|1898|2248|2937|3943|5139|3709|4340|4914|5614|6187|11652|9942|20365|9838|16601|
+|4|2493|1498|2688|2091|5485|5324|4496|4492|5523|5174|8353|9833|19715|19214|12129|27393|
+|4|2355|1950|2935|3383|5765|7162|4391|4391|4418|5265|8693|15340|15973|30613|11614|23119|
+|3.2|3260|1390|2459|1755|5411|5889|3652|4210|4529|5162|8222|9413|18849|18455|16028|29547|
+|3.2|3062|1921|2525|2055|6834|6323|3916|4283|4752|4956|10748|8628|15369|16258|15027|26021|
+|2.6|3151|2039|2791|2601|6610|7918|4368|5078|5688|6760|12354|11062|18436|17563|15035|30379|
+|2.6|3135|1575|3027|1653|5787|6293|4482|4529|4712|5195|11267|10588|16639|16787|15949|27543|
+|2|3050|1965|2269|2729|6574|8452|4877|5601|6234|6105|14047|12401|20608|21756|23021|33000|
+|2|3436|2140|3240|1989|5352|6795|4087|5096|5873|6760|13580|12332|18349|21378|23320|30949|
+|1.4|4124|2640|3865|2718|8161|7999|5596|6374|6277|7373|17441|14634|25133|27359|30202|39171|
+|1.4|3554|2293|3212|3261|7027|9090|5595|6192|6669|7505|18393|12325|22932|24509|27126|33748|
+|1|5348|2820|6340|3404|10168|11130|7206|8805|8285|8729|18293|16843|28392|31007|34998|42773|
+|1|4735|2577|5241|2038|10784|9490|5159|9057|8954|9138|18213|15769|27259|27927|35539|40335|
+|0|11291|13751|17858|13083|35769|36605|36398|37620|35052|36365|33880|33576|42494|41642|46640|46467|
+|0|7244|13013|12074|9639|32487|31180|32986|34580|32642|35208|32367|32937|39519|41412|45332|46843|</p>
+
+<p><strong>Column3</strong></p>
+
+<table><thead>
+<tr>
+<th>DrugA</th>
+<th>DrugB</th>
+<th>Fraction</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>5000</td>
+<td>73.4</td>
+<td>921</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>73.4</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>2500</td>
+<td>73.4</td>
+<td>995</td>
+</tr>
+<tr>
+<td>2500</td>
+<td>73.4</td>
+<td>1020</td>
+</tr>
+<tr>
+<td>1250</td>
+<td>73.4</td>
+<td>976</td>
+</tr>
+<tr>
+<td>1250</td>
+<td>73.4</td>
+<td>982</td>
+</tr>
+<tr>
+<td>625</td>
+<td>73.4</td>
+<td>994</td>
+</tr>
+<tr>
+<td>625</td>
+<td>73.4</td>
+<td>993</td>
+</tr>
+<tr>
+<td>312.5</td>
+<td>73.4</td>
+<td>1018</td>
+</tr>
+<tr>
+<td>312.5</td>
+<td>73.4</td>
+<td>1087</td>
+</tr>
+<tr>
+<td>156.25</td>
+<td>73.4</td>
+<td>967</td>
+</tr>
+<tr>
+<td>156.25</td>
+<td>73.4</td>
+<td>1003</td>
+</tr>
+<tr>
+<td>78.125</td>
+<td>73.4</td>
+<td>997</td>
+</tr>
+<tr>
+<td>78.125</td>
+<td>73.4</td>
+<td>1026</td>
+</tr>
+<tr>
+<td>39.0625</td>
+<td>73.4</td>
+<td>1031</td>
+</tr>
+<tr>
+<td>39.0625</td>
+<td>73.4</td>
+<td>982</td>
+</tr>
+<tr>
+<td>19.53125</td>
+<td>73.4</td>
+<td>1036</td>
+</tr>
+<tr>
+<td>19.53125</td>
+<td>73.4</td>
+<td>1046</td>
+</tr>
+</tbody></table>
+
+<p>&hellip;&hellip;&hellip;&hellip;..</p>
 
 <h2>Example</h2>
 
@@ -220,30 +356,6 @@ source(&quot;DDCV.R&quot;)
 <p><strong>IC50 Prediction</strong></p>
 
 <p><strong>Single and Combination Drug IC50:</strong></p>
-
-<table><thead>
-<tr>
-<th>Tables</th>
-<th align="center">Are</th>
-<th align="right">Cool</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>col 3 is</td>
-<td align="center">right-aligned</td>
-<td align="right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td align="center">centered</td>
-<td align="right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td align="center">are neat</td>
-<td align="right">$1</td>
-</tr>
-</tbody></table>
 
 <table><thead>
 <tr>
@@ -275,7 +387,9 @@ source(&quot;DDCV.R&quot;)
 
 <p><strong>Isobologram</strong></p>
 
+<blockquote>
 <p>Isobologram analysis has been used to make a graphical presentation of the interaction of two drugs. </p>
+</blockquote>
 
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/isob.png" alt="view"/></p>
 
