@@ -31,6 +31,12 @@ shapeB <- function (inputFile, drug1="Drug1", drug2="Drug2", threeColumn=2:4, sw
   mydata2<-mydata2[with(mydata2,order(mydata2[,1],mydata2[,2])),]
   mydata2[1,3]<-1
   
+  
+  ## remove outliners
+  tmp<-mydata2[,3]==1
+  tmp[1]<-FALSE
+  mydata2<-mydata2[!tmp,]
+  
   return(mydata2)
   
 }

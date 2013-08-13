@@ -29,9 +29,19 @@ shapeA <- function (inputFile, drug1="Drug1", drug2="Drug2",swap=FALSE) {
   ## sort by drug1 and then drug2 
   mydata3<-mydata3[with(mydata3,order(mydata3[,1],mydata3[,2])),]
   
+  ## set 0 concentration maximum
   mydata3[1,3]<-1
   
+  ## Remove outliner 
+  tmp<-mydata3[,3]==1
+  tmp[1]<-FALSE
+  mydata3<-mydata3[!tmp,]
+  
+  
+  ##return
   return(mydata3)
   
     
 }
+
+
