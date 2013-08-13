@@ -110,6 +110,8 @@ Example
 
 **Isobologram**
 
+Isobologram analysis has been used to make a graphical presentation of the interaction of two drugs. 
+
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/isob.png)
 
 **Combination Index**
