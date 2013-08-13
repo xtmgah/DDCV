@@ -36,7 +36,7 @@ Dependencies
 Downloading 
 ------------
 
-Both through "*git clone*" or directly download comparessed file are avaiable:
+>Both through "*git clone*" or directly download comparessed file are avaiable:
 
 ```bash
 git clone "https://github.com/xtmgah/DDCV.git"
@@ -48,7 +48,7 @@ cd DDCV
 Running
 -------
 
-There are two methods runing with or without downloading software. 
+>There are two methods runing with or without downloading software. 
 
 **GitHub repository**:
 
@@ -57,7 +57,7 @@ library(shiny)
 options(download.file.method="wget",download.file.extra=" --no-check-certificate")
 shiny::runGitHub('DDCV','xtmgah')
 ```
-or
+>or
 
 ```R
 library(shiny)
@@ -71,14 +71,14 @@ runUrl('https://github.com/xtmgah/DDCV/archive/master.zip')
 cd DDCV
 ```
 
-then
+>then
 
 ```R
 library(shiny)
 runApp("../DDCV")
 ```
 
-or 
+>or 
 
 ```R
 library(shiny)
@@ -95,6 +95,20 @@ Example
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/panel2.png)
 
 **IC50 Prediction**
+
+**Single and Combination Drug IC50:**
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
+      | DrugA | DrugB | Combination (IC50 equivalent dose)|
+------| ----- |:-----:|-----------------------------------|
+ IC50 |  2.01 | 6.24  |                               0.64|
+
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/ic502.png)
 
@@ -116,13 +130,13 @@ Isobologram analysis has been used to make a graphical presentation of the inter
 
 **Combination Index**
 
-Combination index provides a quantitative measure of the extent of drug interaction at a given effect level.
+>Combination index provides a quantitative measure of the extent of drug interaction at a given effect level.
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cindex.png)
 
 **Curve-shift**
 
-Curve-shift analysis allows simultaneous presentation of the studied concentration-effect curves of single-agent and combination treatments in a single plot. 
+>Curve-shift analysis allows simultaneous presentation of the studied concentration-effect curves of single-agent and combination treatments in a single plot. 
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cshift.png)
 
@@ -130,7 +144,7 @@ Curve-shift analysis allows simultaneous presentation of the studied concentrati
 
 **Universal Surface Response**
 
-Universal surface model approach provides a single value summarizing the nature of interaction for the totality of data on the combinations.
+>Universal surface model approach provides a single value summarizing the nature of interaction for the totality of data on the combinations.
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/3d.png)
 
