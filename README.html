@@ -143,37 +143,79 @@ hr {
 <body>
 <h1>DDCV</h1>
 
-<p>A Visualized Shiny App to Evaluate Drug-Drug Interaction.</p>
+<p>A Visualized Shiny App to Evaluate Drug-Drug Interaction</p>
 
-<p>Project status: <strong>beta</strong></p>
+<p>Project status: <strong>Version 1.0</strong></p>
 
-<p>Author: Tongwu Zhang (xtmgah AT gmail.com)</p>
+<p>Author: <a href="mailto:zhangt8@mail.nih.gov">Tongwu Zhang</a></p>
+
+<p>Website: <a href="http://xtmgah.github.io/DDCV/">http://xtmgah.github.io/DDCV/</a></p>
+
+<p>cite:</p>
+
+<h2>Description</h2>
+
+<p>Evaluation of synergy or antagonism of agents used in combination therapy is an integral part of cancer chemotherapy development. Simultaneous use of multiple methods enhances the donfidence of combination therapy. We developed a visualized R Shiny App to evaluated drug-drug synergy, additivity and antagonism using several published methodologies, including isobologram, combination index, curve-shift and universal surface response analysis. </p>
 
 <h2>Dependencies</h2>
 
-<p>Tested with:</p>
-
 <ul>
-<li><p>R</p></li>
-<li><p>ggplot2</p></li>
-<li><p>shiny</p></li>
-<li></li>
+<li><p><a href="http://www.r-project.org">R</a></p></li>
+<li><p>R package: <a href="http://ggplot2.org">ggplot2</a>, <a href="http://www.rstudio.com/shiny/">shiny</a>, <a href="http://cran.r-project.org/web/packages/reshape2/index.html">reshape2</a>, <a href="http://cran.r-project.org/web/packages/gplots/index.html">gplots</a>, <a href="http://plyr.had.co.nz">plyr</a>, <a href="http://cran.r-project.org/web/packages/lattice/index.html">lattice</a>, <a href="http://cran.r-project.org/web/packages/scatterplot3d/index.html">scatterplot3d</a></p></li>
 </ul>
 
-<h2>Installation</h2>
+<h2>Downloading </h2>
+
+<p>Both through &ldquo;<em>git clone</em>&rdquo; or directly download comparessed file are avaiable:</p>
 
 <pre><code class="bash">git clone &quot;https://github.com/xtmgah/DDCV.git&quot;
-cd DDCV.git
+cd DDCV
 </code></pre>
 
-<h2>Test Data</h2>
+<h2>Running</h2>
+
+<p>There are two methods runing with or without downloading software. </p>
+
+<p><strong>GitHub repository</strong>:</p>
+
+<pre><code class="R">library(shiny)
+options(download.file.method=&quot;wget&quot;,download.file.extra=&quot; --no-check-certificate&quot;)
+shiny::runGitHub(&#39;DDCV&#39;,&#39;xtmgah&#39;)
+</code></pre>
+
+<p>or</p>
+
+<pre><code class="R">library(shiny)
+options(download.file.method=&quot;wget&quot;,download.file.extra=&quot; --no-check-certificate&quot;)
+runUrl(&#39;https://github.com/xtmgah/DDCV/archive/master.zip&#39;)
+</code></pre>
+
+<p><strong>Local running</strong></p>
+
+<pre><code class="bash">cd DDCV
+</code></pre>
+
+<p>then</p>
+
+<pre><code class="R">library(shiny)
+runApp(&quot;../DDCV&quot;)
+</code></pre>
+
+<p>or </p>
+
+<pre><code class="R">library(shiny)
+source(&quot;DDCV.R&quot;)
+</code></pre>
+
+<h2>Example</h2>
 
 <p><strong>Parameter Panel</strong></p>
 
-<p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/panel.png" alt="view"/></p>
+<p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/panel2.png" alt="view"/></p>
 
-<p><strong>IC50 Prediction</strong>
-<img src="https://raw.github.com/xtmgah/DDCV/master/doc/ic50.png" alt="view"/></p>
+<p><strong>IC50 Prediction</strong></p>
+
+<p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/ic502.png" alt="view"/></p>
 
 <p><strong>Response Matrix Profile</strong></p>
 
@@ -205,7 +247,7 @@ cd DDCV.git
 
 <p><strong>Contour Plots of Raw Data</strong></p>
 
-<p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/3d.png" alt="view"/></p>
+<p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/contour.png" alt="view"/></p>
 
 </body>
 
