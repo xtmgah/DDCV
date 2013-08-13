@@ -3,11 +3,13 @@ library(shiny)
 sfiles<-list.files(path="DDCV_function/",pattern=".R",full.names=TRUE)
 for( fileA in sfiles) {source(fileA)}
 
+dfpath<-'./testdata/shapeAdata.csv'
+
 shinyServer(function(input, output){
   
   datasetInput <- reactive({
     inFile <- input$file1
-    filepath <- ifelse(is.null(inFile),'./testdata/shapeBdata.csv',inFile$datapath)
+    filepath <- ifelse(is.null(inFile),dfpath,inFile$datapath)
 #    ifelse (is.null(inFile)) {
 #      return(NULL)
 #    }

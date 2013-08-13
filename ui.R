@@ -9,7 +9,7 @@ shinyUI(pageWithSidebar(
     fileInput('file1','Please Choose CSV File',
               accept=c('text/csv','text/comma-separated-value,test/plain')),
     tags$hr(),
-    radioButtons('fty','CSV File Format',c(Matrix='shapeA',Column3='shapeB'),'Column3'),
+    radioButtons('fty','CSV File Format',c(Matrix='shapeA',Column3='shapeB'),'Matrix'),
     
     br(),
     
