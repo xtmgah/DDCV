@@ -1,64 +1,111 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>DDCV by xtmgah</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="DDCV : A Visualized Shiny App to Evaluate Drug-Drug Interaction" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>DDCV</title>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>DDCV</h1>
-          <h2>A Visualized Shiny App to Evaluate Drug-Drug Interaction</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/xtmgah/DDCV">View on GitHub</a>
+
+          <h1 id="project_title">DDCV</h1>
+          <h2 id="project_tagline">A Visualized Shiny App to Evaluate Drug-Drug Interaction</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/xtmgah/DDCV/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/xtmgah/DDCV/tarball/master">Download this project as a tar.gz file</a>
+            </section>
         </header>
+    </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/xtmgah/DDCV/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/xtmgah/DDCV/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/xtmgah/DDCV" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h1>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
 <a name="ddcv" class="anchor" href="#ddcv"><span class="octicon octicon-link"></span></a>DDCV</h1>
 
-<p>A Visualized Shiny App to Evaluate Drug-Drug Interaction.</p>
+<p>A Visualized Shiny App to Evaluate Drug-Drug Interaction</p>
 
-<p>Project status: <strong>beta</strong></p>
+<p>Project status: <strong>Version 1.0</strong></p>
 
-<p>Author: Tongwu Zhang (xtmgah AT gmail.com)</p>
+<p>Author: <a href="mailto:zhangt8@mail.nih.gov">Tongwu Zhang</a></p>
+
+<p>Website: <a href="http://xtmgah.github.io/DDCV/">http://xtmgah.github.io/DDCV/</a></p>
+
+<p>License: DDCV is freely available under a GNU Public License (Version 2)</p>
+
+<p>Citation: Please cite the following article if you use DDCV in your research</p>
+
+<p>Tongwu Zhang <em>et al</em>. <strong>DDCV: A visualized R Shiny App for Evaluationg Drug-Drug Interaction</strong>. 2013.(In Prepare) </p>
+
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Evaluation of synergy or antagonism of agents used in combination therapy is an integral part of cancer chemotherapy development. Simultaneous use of multiple methods enhances the donfidence of combination therapy. We developed a visualized R Shiny App to evaluated drug-drug synergy, additivity and antagonism using several published methodologies, including isobologram, combination index, curve-shift and universal surface response analysis. </p>
 
 <h2>
 <a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
-<p>Tested with:</p>
-
 <ul>
-<li><p>R</p></li>
-<li><p>ggplot2</p></li>
-<li><p>shiny</p></li>
-<li>
+<li><p><a href="http://www.r-project.org">R</a></p></li>
+<li><p>R package: <a href="http://ggplot2.org">ggplot2</a>, <a href="http://www.rstudio.com/shiny/">shiny</a>, <a href="http://cran.r-project.org/web/packages/reshape2/index.html">reshape2</a>, <a href="http://cran.r-project.org/web/packages/gplots/index.html">gplots</a>, <a href="http://plyr.had.co.nz">plyr</a>, <a href="http://cran.r-project.org/web/packages/lattice/index.html">lattice</a>, <a href="http://cran.r-project.org/web/packages/scatterplot3d/index.html">scatterplot3d</a></p></li>
 </ul><h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a name="downloading-" class="anchor" href="#downloading-"><span class="octicon octicon-link"></span></a>Downloading </h2>
+
+<p>Both through "*git clone*" or directly download comparessed file are avaiable:</p>
 
 <div class="highlight"><pre>git clone <span class="s2">"https://github.com/xtmgah/DDCV.git"</span>
-<span class="nb">cd </span>DDCV.git
+<span class="nb">cd </span>DDCV
 </pre></div>
 
 <h2>
-<a name="test-data" class="anchor" href="#test-data"><span class="octicon octicon-link"></span></a>Test Data</h2>
+<a name="running" class="anchor" href="#running"><span class="octicon octicon-link"></span></a>Running</h2>
+
+<p>There are two methods runing with or without downloading software. </p>
+
+<p><strong>GitHub repository</strong>:</p>
+
+<div class="highlight"><pre><span class="c">library(shiny)</span>
+<span class="c">options(download.file.method="wget",download.file.extra=" --no-check-certificate")</span>
+<span class="c">shiny::runGitHub('DDCV','xtmgah')</span>
+</pre></div>
+
+<p>or</p>
+
+<div class="highlight"><pre><span class="c">library(shiny)</span>
+<span class="c">options(download.file.method="wget",download.file.extra=" --no-check-certificate")</span>
+<span class="c">runUrl('https://github.com/xtmgah/DDCV/archive/master.zip')</span>
+</pre></div>
+
+<p><strong>Local running</strong></p>
+
+<div class="highlight"><pre><span class="nb">cd </span>DDCV
+</pre></div>
+
+<p>then</p>
+
+<div class="highlight"><pre><span class="c">library(shiny)</span>
+<span class="c">runApp("../DDCV")</span>
+</pre></div>
+
+<p>or </p>
+
+<div class="highlight"><pre><span class="c">library(shiny)</span>
+<span class="c">source("DDCV.R")</span>
+</pre></div>
+
+<h2>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
 
 <p><strong>Parameter Panel</strong></p>
 
@@ -80,13 +127,19 @@
 
 <p><strong>Isobologram</strong></p>
 
+<p>Isobologram analysis has been used to make a graphical presentation of the interaction of two drugs. </p>
+
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/isob.png" alt="view"></p>
 
 <p><strong>Combination Index</strong></p>
 
+<p>Combination index provides a quantitative measure of the extent of drug interaction at a given effect level.</p>
+
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/cindex.png" alt="view"></p>
 
 <p><strong>Curve-shift</strong></p>
+
+<p>Curve-shift analysis allows simultaneous presentation of the studied concentration-effect curves of single-agent and combination treatments in a single plot. </p>
 
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/cshift.png" alt="view"></p>
 
@@ -94,20 +147,25 @@
 
 <p><strong>Universal Surface Response</strong></p>
 
+<p>Universal surface model approach provides a single value summarizing the nature of interaction for the totality of data on the combinations.</p>
+
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/3d.png" alt="view"></p>
 
 <p><strong>Contour Plots of Raw Data</strong></p>
 
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/contour.png" alt="view"></p>
-        </section>
-
-        <footer>
-          DDCV is maintained by <a href="https://github.com/xtmgah">xtmgah</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
     </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">DDCV maintained by <a href="https://github.com/xtmgah">xtmgah</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
