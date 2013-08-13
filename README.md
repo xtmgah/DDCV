@@ -9,7 +9,11 @@ Author: [Tongwu Zhang](mailto:zhangt8@mail.nih.gov)
 
 Website: [http://xtmgah.github.io/DDCV/](http://xtmgah.github.io/DDCV/)
 
-cite:
+License: DDCV is freely available under a GNU Public License (Version 2)
+
+Citation: Please cite the following article if you use DDCV in your research
+
+Tongwu Zhang *et al*. **DDCV: A visualized R Shiny App for Evaluationg Drug-Drug Interaction**. 2013.(In Prepare) 
 
 
 
@@ -110,15 +114,21 @@ Example
 
 **Combination Index**
 
+Combination index provides a quantitative measure of the extent of drug interaction at a given effect level.
+
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cindex.png)
 
 **Curve-shift**
+
+Curve-shift analysis allows simultaneous presentation of the studied concentration-effect curves of single-agent and combination treatments in a single plot. 
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cshift.png)
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cshift2.png)
 
 **Universal Surface Response**
+
+Universal surface model approach provides a single value summarizing the nature of interaction for the totality of data on the combinations.
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/3d.png)
 
