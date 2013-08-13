@@ -163,7 +163,6 @@ Example
  IC50 |  2.01 | 6.24  |                               0.64|
 
 
-![view](https://raw.github.com/xtmgah/DDCV/master/doc/ic502.png)
 
 **Response Matrix Profile**
 
