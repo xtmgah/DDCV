@@ -73,7 +73,7 @@ shinyServer(function(input, output){
   })
   
   output$usresponse <- renderPlot({
-    usReponse(drMatrix=datasetInput(),IC50base=input$normal7) 
+    usReponse(drMatrix=datasetInput()) 
   })
   
   output$dcontour <- renderPlot({
