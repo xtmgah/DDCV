@@ -71,7 +71,7 @@ usReponse2 <- function (drMatrix) {
   drug1<-names(drMatrix)[1]
   drug2<-names(drMatrix)[2]
   p<-ggplot(newdata,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.1f",Alpha),size=10))+
-    geom_tile(aes(fill=Alpha))+geom_text(aes(size=10))+
+    geom_tile(aes(fill=Alpha))+geom_text(aes(size=12))+
     guides(size=FALSE)+
     scale_fill_gradient(low="red",high="green")+
     #    scale_fill_manual(values=rainbow(5),breaks=c(0.5,1,1.5), labels=c('+++','+','-'))+

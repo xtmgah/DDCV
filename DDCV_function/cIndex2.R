@@ -104,6 +104,8 @@ cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   
   newdata<-data.frame(sumtable2[,c(1,2,6)])
   names(newdata)<-c("Drug1","Drug2","CI")  
+  newdata$Drug1<-drMatrix[,1][ind3]
+  newdata$Drug1<-drMatrix[,2][ind3]
   
   newdata$Symbol<-rep(NA,length(newdata$CI))
   newdata$Symbol[newdata$CI>10]<-"-----"
@@ -131,7 +133,7 @@ cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   drug1<-names(drMatrix)[1]
   drug2<-names(drMatrix)[2]
   p<-ggplot(newdata,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.1f",CI),size=10))+
-    geom_tile(aes(fill=Symbol))+geom_text(aes(size=10))+
+    geom_tile(aes(fill=Symbol))+geom_text(aes(size=12))+
     guides(size=FALSE)+
     scale_fill_brewer(type="div",palette=8)+
 #    scale_fill_manual(values=rainbow(5),breaks=c(0.5,1,1.5), labels=c('+++','+','-'))+
