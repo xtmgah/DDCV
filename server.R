@@ -64,6 +64,10 @@ shinyServer(function(input, output){
     cIndex(drMatrix=datasetInput(),IC50base=input$normal4) 
   })
   
+  output$cindex2 <- renderPlot({
+    cIndex2(drMatrix=datasetInput(),IC50base=input$normal4) 
+  })
+  
   output$cshift <- renderPlot({
     cShift(drMatrix=datasetInput(),IC50base=input$normal5)
   })
@@ -74,6 +78,10 @@ shinyServer(function(input, output){
   
   output$usresponse <- renderPlot({
     usReponse(drMatrix=datasetInput()) 
+  })
+  
+  output$usresponse2 <- renderPlot({
+    usReponse2(drMatrix=datasetInput()) 
   })
   
   output$dcontour <- renderPlot({

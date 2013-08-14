@@ -13,10 +13,10 @@ shinyUI(pageWithSidebar(
     
     br(),
     
-    textInput('dname1','DrugA Name (no space):','DrugA'),
-    textInput('dname2', 'DrugB Name (no space):','DrugB'),
+    textInput('dname1','DrugA Name (no space):','TMZ'),
+    textInput('dname2', 'DrugB Name (no space):','AZD7762'),
     br(),
-    checkboxInput('swap','Swap DrugA and DrugB',FALSE),
+    checkboxInput('swap','Swap DrugA and DrugB',TRUE),
     br(),
     
     checkboxInput("normal1","Median Effect Plot: IC50 Normalization",TRUE),
@@ -42,9 +42,11 @@ shinyUI(pageWithSidebar(
     plotOutput("meffect2"),
     plotOutput("isob"),
     plotOutput("cindex"),
+    plotOutput("cindex2"),
     plotOutput("cshift"),
     plotOutput("cshift2"),
     plotOutput("usresponse"),
+    plotOutput("usresponse2"),
     plotOutput("dcontour")
   )
   
