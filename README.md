@@ -152,7 +152,7 @@ Example
 
 **Parameter Panel**
 
-![view](https://raw.github.com/xtmgah/DDCV/master/doc/panel2.png)
+![view](https://raw.github.com/xtmgah/DDCV/master/doc/panel.png)
 
 **IC50 Prediction**
 
@@ -186,6 +186,8 @@ Example
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cindex.png)
 
+![view](https://raw.github.com/xtmgah/DDCV/master/doc/cindex2.png)
+
 **Curve-shift**
 
 >Curve-shift analysis allows simultaneous presentation of the studied concentration-effect curves of single-agent and combination treatments in a single plot. 
@@ -198,7 +200,9 @@ Example
 
 >Universal surface model approach provides a single value summarizing the nature of interaction for the totality of data on the combinations.
 
-![view](https://raw.github.com/xtmgah/DDCV/master/doc/3d.png)
+![view](https://raw.github.com/xtmgah/DDCV/master/doc/usr.png)
+
+![view](https://raw.github.com/xtmgah/DDCV/master/doc/usr2.png)
 
 **Contour Plots of Raw Data**
 
