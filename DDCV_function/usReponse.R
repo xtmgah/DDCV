@@ -43,7 +43,7 @@ usReponse <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   
   tdose1<-dose1[ind3]
   tdose2<-dose2[ind3]
-  tfa<-1-fa[ind3]
+  tfa<-fa[ind3]
   
   
   tA1<-(tfa/(1-tfa))^(1/(summary(lm1)$coef[1,1]))
@@ -71,7 +71,7 @@ usReponse <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   c3d[alpha==0]<-"black"
   
   
-  scatterplot3d(log(tdose1),log(tdose2),1-tfa,xlab=paste0("Log(",var.name[1]," dose)"),ylab=paste0("Log(",var.name[2]," dose)"),zlab="Effect",col.grid="lightblue",pch=20,type="h",color=c3d,lty.hplot=3,box=F,cex.symbols=1.4)  
+  scatterplot3d(log(tdose1),log(tdose2),tfa,xlab=paste0("Log(",var.name[1]," dose)"),ylab=paste0("Log(",var.name[2]," dose)"),zlab="Effect",col.grid="lightblue",pch=20,type="h",color=c3d,lty.hplot=3,box=F,cex.symbols=1.4)  
   legend("topright",c("Synergy","Antagonism"),col=c("green4","red"),pch=20,bty="n")
   title("Universal Surface Response")
   return(sumtable3)
