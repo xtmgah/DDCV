@@ -46,7 +46,7 @@ cShift2 <- function (drMatrix, drug1Base=1, drug2Base=1,IC50base=TRUE) {
   
   par(mar=c(5.1, 4.1, 4.1, 1))
   pchi<-c(16,1:15,17,18)
-  plot(log10(totdose[ind3]),fa[ind3],type='n',xlab=paste0("\nLog10(",var.name[1]," IC50 equivalent Dose)"),ylab="Effect\n", ylim=c(0,1),xlim=c(log10(min(dose1[ind3])),log10(max(totdose[ind3]))))
+  plot(log10(totdose[ind3]),fa[ind3],type='n',xlab=paste0("\nLog10(",var.name[1]," IC50 equivalent Dose)"),ylab="Effect", ylim=c(0,1),xlim=c(log10(min(dose1[ind3])),log10(max(totdose[ind3]))))
   
   for (i in 1:length(unique(dose2))) { 
     
