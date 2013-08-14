@@ -74,10 +74,10 @@ p <-ggplot(df,aes(x=log(dose),y=fa,))+geom_point(data=df,aes(col=drug))+
     geom_line(data=dfm1,aes(x=log(dose),y=fa),col="green",linetype=1)+
     geom_line(data=dfm2,aes(x=log(dose),y=fa),col="blue",linetype=3)+
 #    scale_x_log10()+
-    xlab(paste0("\nLog10("," IC50 equivalent dose)"))+
+    xlab(paste0("\nLog("," IC50 equivalent dose)"))+
     ylab("Effect\n")+
     ggtitle("Curve-shift\n")+
-    annotation_logticks()+
+#    annotation_logticks()+
     scale_colour_manual("",values=c("green","blue","red"))+
     theme(legend.key = element_blank(),
           legend.text = element_text(size = 10),
