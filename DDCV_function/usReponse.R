@@ -37,8 +37,8 @@ usReponse <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   dm1 <- exp(-summary(lm1)$coef[1,1]/summary(lm1)$coef[2,1])
   lm2 <- lm(resp[ind2]~logd[ind2])
   dm2 <- exp(-summary(lm2)$coef[1,1]/summary(lm2)$coef[2,1])
-  lmcomb <- lm(resp[ind3]~logd[ind3])
-  dmcomb <- exp(-summary(lmcomb)$coef[1,1]/summary(lmcomb)$coef[2,1])
+  #lmcomb <- lm(resp[ind3]~logd[ind3])
+  #dmcomb <- exp(-summary(lmcomb)$coef[1,1]/summary(lmcomb)$coef[2,1])
 
   
   tdose1<-dose1[ind3]
