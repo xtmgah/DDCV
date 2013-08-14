@@ -25,7 +25,7 @@ shinyUI(pageWithSidebar(
     checkboxInput("normal4","Combination Index: IC50 Normalization",TRUE),
     checkboxInput("normal5","Curve-Shift: IC50 Normalization",TRUE),
     checkboxInput("normal6","Curve-Shift II: IC50 Normalization",TRUE),
-    checkboxInput("normal7","Universal Surface Response: IC50 Normalization",FALSE),   
+#    checkboxInput("normal7","Universal Surface Response: IC50 Normalization",FALSE),   
     
     br(),
     submitButton("Update View")
