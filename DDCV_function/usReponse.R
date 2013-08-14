@@ -69,8 +69,8 @@ usReponse <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   
   
   c3d<-rep(NA,length(alpha))
-  c3d[alpha<0]<-"red"
-  c3d[alpha>0]<-"green4"
+  c3d[alpha>0]<-"red"
+  c3d[alpha<0]<-"green4"
   c3d[alpha==0]<-"black"
   
   
