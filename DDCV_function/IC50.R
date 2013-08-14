@@ -38,7 +38,7 @@ IC50 <- function (drMatrix) {
   dmcomb <- exp(-summary(lmcomb)$coef[1,1]/summary(lmcomb)$coef[2,1])
   
   dmall<-data.frame(dm1,dm2,dmcomb)
-  names(dmall)<-c(names(drMatrix)[1:2],"Combiantion \n(IC50 equivalent dose)")
+  names(dmall)<-c(names(drMatrix)[1:2],"Combiantion (IC50 equivalent dose)")
   row.names(dmall)<-"IC50"
   return(dmall)
 }
