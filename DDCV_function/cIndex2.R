@@ -105,7 +105,7 @@ cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   newdata<-data.frame(sumtable2[,c(1,2,6)])
   names(newdata)<-c("Drug1","Drug2","CI")  
   newdata$Drug1<-drMatrix[,1][ind3]
-  newdata$Drug1<-drMatrix[,2][ind3]
+  newdata$Drug2<-drMatrix[,2][ind3]
   
   newdata$Symbol<-rep(NA,length(newdata$CI))
   newdata$Symbol[newdata$CI>10]<-"-----"
