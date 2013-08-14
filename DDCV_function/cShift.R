@@ -55,7 +55,7 @@ cShift <- function (drMatrix, drug1Base=1, drug2Base=1,IC50base=TRUE) {
   df<-df[-1,]
   df$drug<-factor(df$drug,levels=keynames)
  
-  dosem<-10^seq(-5,5,0.01) 
+  dosem<-10^seq(-3.5,3.5,0.01) 
 #  dosem <- seq(0,max(totdose[ind3]),max(totdose[ind3])/20000)
  # dosem<-dosem[-1]
   fam <- 1/(1+(dmcomb/dosem)^lmcomb$coef[2])
