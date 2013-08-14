@@ -77,6 +77,7 @@ p <-ggplot(df,aes(x=dose,y=fa,))+geom_point(data=df,aes(col=drug))+
     xlab(paste0("\nLog10("," IC50 equivalent dose)"))+
     ylab("Effect\n")+
     ggtitle("Curve-shift\n")+
+    annotation_logticks()+
     scale_colour_manual("",values=c("green","blue","red"))+
     theme(legend.key = element_blank(),
           legend.text = element_text(size = 10),
