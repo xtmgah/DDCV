@@ -69,11 +69,11 @@ cShift <- function (drMatrix, drug1Base=1, drug2Base=1,IC50base=TRUE) {
   dfm1<-data.frame(dose=dosem,fa=fam1,drug=keynames[1])
   dfm2<-data.frame(dose=dosem,fa=fam2,drug=keynames[2])
 
-p <-ggplot(df,aes(x=dose,y=fa,))+geom_point(data=df,aes(col=drug))+
-    geom_line(data=dfm,aes(x=dose,y=fa),col="red",linetype=5)+
-    geom_line(data=dfm1,aes(x=dose,y=fa),col="green",linetype=1)+
-    geom_line(data=dfm2,aes(x=dose,y=fa),col="blue",linetype=3)+
-    scale_x_log10()+
+p <-ggplot(df,aes(x=log(dose),y=fa,))+geom_point(data=df,aes(col=drug))+
+    geom_line(data=dfm,aes(x=log(dose),y=fa),col="red",linetype=5)+
+    geom_line(data=dfm1,aes(x=log(dose),y=fa),col="green",linetype=1)+
+    geom_line(data=dfm2,aes(x=log(dose),y=fa),col="blue",linetype=3)+
+#    scale_x_log10()+
     xlab(paste0("\nLog10("," IC50 equivalent dose)"))+
     ylab("Effect\n")+
     ggtitle("Curve-shift\n")+
