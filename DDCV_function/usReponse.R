@@ -46,16 +46,16 @@ usReponse <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   tfa<-fa[ind3]
   
   
-  #tA1<-(tfa/(1-tfa))^(1/(summary(lm1)$coef[1,1]))
-  tA1<-((1-tfa)/(tfa))^(1/(summary(lm1)$coef[1,1]))
+  tA1<-(tfa/(1-tfa))^(1/(summary(lm1)$coef[1,1]))
+  #tA1<-((1-tfa)/(tfa))^(1/(summary(lm1)$coef[1,1]))
   A1<-tdose1/(tA1*(dm1))
   
-  #tA2<-(tfa/(1-tfa))^(1/(summary(lm2)$coef[1,1]))
-  tA2<-((1-tfa)/(tfa))^(1/(summary(lm2)$coef[1,1]))
+  tA2<-(tfa/(1-tfa))^(1/(summary(lm2)$coef[1,1]))
+  #tA2<-((1-tfa)/(tfa))^(1/(summary(lm2)$coef[1,1]))
   A2<-tdose2/(tA2*(dm2))
   
-  #tA3<-(tfa/(1-tfa))^(0.5/(summary(lm1)$coef[1,1])+0.5/(summary(lm2)$coef[1,1]))
-  tA3<-((1-tfa)/(tfa))^(0.5/(summary(lm1)$coef[1,1])+0.5/(summary(lm2)$coef[1,1]))
+  tA3<-(tfa/(1-tfa))^(0.5/(summary(lm1)$coef[1,1])+0.5/(summary(lm2)$coef[1,1]))
+  #tA3<-((1-tfa)/(tfa))^(0.5/(summary(lm1)$coef[1,1])+0.5/(summary(lm2)$coef[1,1]))
   A3<-(tdose1*tdose2)/(tA3*(dm1)*(dm2))
   
   alpha<-(1-A1-A2)/A3
