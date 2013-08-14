@@ -18,7 +18,7 @@ rmProfile <- function (drMatrix,drug1="Drug1",drug2="Drug2")  {
     theme(plot.title = element_text(face="bold"))
     
     names(drMatrix)<-c("Drug1","Drug2","Fraction")  
-  p<-ggplot(drMatrix,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.1f",100*(1-Fraction)),size=10))+geom_tile(aes(fill=Fraction))+geom_text(aes(size=10))+scale_fill_gradient(low="green",high="red")+xlab(paste0("\n",drug1))+ylab(paste0(drug2,"\n"))+theme_blank_ztw+ggtitle("Response Matrix Profile")
+  p<-ggplot(drMatrix,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.1f",100*(1-Fraction)),size=10))+geom_tile(aes(fill=Fraction))+geom_text(aes(size=10))+scale_fill_gradient(low="green",high="red")+xlab(paste0("\n",drug1," dose"))+ylab(paste0(drug2," dose\n"))+theme_blank_ztw+ggtitle("Response Matrix Profile")
   print(p)
     
 }
