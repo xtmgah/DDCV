@@ -120,7 +120,7 @@ cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   newdata$Symbol[newdata$CI>0.1 & newdata$CI<=0.3]<-"++++"
   newdata$Symbol[newdata$CI<=0.1]<-"+++++"
   lev<-c('-----','----','---','--','-','+/-','+','++','+++','++++','+++++')
-  #newdata$Symbol<-factor(newdata$Symbol,levels=lev)
+  newdata$Symbol<-factor(newdata$Symbol,levels=as.character(lev))
   
   
   theme_blank_ztw<-theme(panel.background = element_blank())+
