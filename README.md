@@ -184,6 +184,24 @@ Example
 
 >Combination index provides a quantitative measure of the extent of drug interaction at a given effect level.
 
+>Chou and co-workers proposed semi-quantitative methods for describing the degrees of synergism antagonism
+
+
+|CI Range |Symbol |Description |
+|------|------|------|
+|<0.1 |+++++ |Verystrong synergism|
+|0.1 - 0.3|++++|Strong synergism|
+|0.3 - 0.7|+++ |Synergism |
+|0.7 - 0.85 |++ |Moderate synergism|
+|0.85 - 0.9 |+ |Slight synergism|
+|0.9 - 1.1 |+/- |Nearly additive|
+|1.1 - 1.2 |- |Slight antagonism |
+|1.2 - 1.45 |-- |Moderate antagonism |
+|1.45 - 3.3 |--- |Antagonism |
+|3.3 - 10 |---- |Strong antagonism |
+|> 10 |----- |Very strong antagonism |
+
+
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cindex.png)
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cindex2.png)
