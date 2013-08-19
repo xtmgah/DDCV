@@ -18,6 +18,6 @@ dContour <- function (drMatrix,contour.level=(1:9)/10) {
   temp2 <- sort(unique(dose2))
   obsfa <- matrix(fa, length(temp1),length(temp2), byrow=T)
   filled.contour(temp1,temp2, obsfa, levels=contour.level, xlab=paste0("Log(",var.name[1]," dose)"),ylab=paste0("Log(",var.name[2]," dose)"),col=redgreen(length(contour.level)))
-  title("Contour Plots of Raw Data")
+  title("Loewe Additivity Contour")
   
 }
