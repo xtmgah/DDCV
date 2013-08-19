@@ -222,7 +222,7 @@ Example
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/usr2.png)
 
-**Contour Plots of Raw Data**
+**Loewe Additivity Contour**
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/contour.png)
 
