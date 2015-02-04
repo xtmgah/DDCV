@@ -31,11 +31,11 @@
       </header>
       <section>
         <h1>
-<a name="ddcv" class="anchor" href="#ddcv"><span class="octicon octicon-link"></span></a>DDCV</h1>
+<a id="ddcv" class="anchor" href="#ddcv" aria-hidden="true"><span class="octicon octicon-link"></span></a>DDCV</h1>
 
 <p>A Visualized Shiny App to Evaluate Drug-Drug Interaction</p>
 
-<p>Project status: <strong>Version 1.0</strong></p>
+<p>Project status: <strong>Version 2.0</strong></p>
 
 <p>Author: <a href="mailto:zhangt8@mail.nih.gov">Tongwu Zhang</a></p>
 
@@ -48,29 +48,30 @@
 <p>Tongwu Zhang <em>et al</em>. <strong>DDCV: A visualized R Shiny App for Evaluationg Drug-Drug Interaction</strong>. 2013.(In Prepare) </p>
 
 <h2>
-<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
 
 <p>Evaluation of synergy or antagonism of agents used in combination therapy is an integral part of cancer chemotherapy development. Simultaneous use of multiple methods enhances the donfidence of combination therapy. We developed a visualized R Shiny App to evaluated drug-drug synergy, additivity and antagonism using several published methodologies, including isobologram, combination index, curve-shift and universal surface response analysis. </p>
 
 <h2>
-<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <ul>
 <li><p><a href="http://www.r-project.org">R</a></p></li>
 <li><p>R package: <a href="http://ggplot2.org">ggplot2</a>, <a href="http://www.rstudio.com/shiny/">shiny</a>, <a href="http://cran.r-project.org/web/packages/reshape2/index.html">reshape2</a>, <a href="http://cran.r-project.org/web/packages/gplots/index.html">gplots</a>, <a href="http://plyr.had.co.nz">plyr</a>, <a href="http://cran.r-project.org/web/packages/lattice/index.html">lattice</a>, <a href="http://cran.r-project.org/web/packages/scatterplot3d/index.html">scatterplot3d</a></p></li>
-</ul><h2>
-<a name="downloading-" class="anchor" href="#downloading-"><span class="octicon octicon-link"></span></a>Downloading </h2>
-
-<blockquote>
-<p>Both through "*git clone*" or directly download comparessed file are avaiable:</p>
-</blockquote>
-
-<div class="highlight"><pre>git clone <span class="s2">"https://github.com/xtmgah/DDCV.git"</span>
-<span class="nb">cd </span>DDCV
-</pre></div>
+</ul>
 
 <h2>
-<a name="running" class="anchor" href="#running"><span class="octicon octicon-link"></span></a>Running</h2>
+<a id="downloading-" class="anchor" href="#downloading-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloading </h2>
+
+<blockquote>
+<p>Both through "<em>git clone</em>" or directly download comparessed file are avaiable:</p>
+</blockquote>
+
+<div class="highlight highlight-bash"><pre>git clone <span class="pl-s1"><span class="pl-pds">"</span>https://github.com/xtmgah/DDCV.git<span class="pl-pds">"</span></span>
+<span class="pl-s3">cd</span> DDCV</pre></div>
+
+<h2>
+<a id="running" class="anchor" href="#running" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running</h2>
 
 <blockquote>
 <p>There are two methods runing with or without downloading software. </p>
@@ -78,43 +79,38 @@
 
 <p><strong>GitHub repository</strong>:</p>
 
-<div class="highlight"><pre><span class="c">library(shiny)</span>
-<span class="c">options(download.file.method="wget",download.file.extra=" --no-check-certificate")</span>
-<span class="c">shiny::runGitHub('DDCV','xtmgah')</span>
-</pre></div>
+<div class="highlight highlight-R"><pre>library(<span class="pl-vo">shiny</span>)
+options(<span class="pl-v">download.file.method</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">"</span>wget<span class="pl-pds">"</span></span>,<span class="pl-v">download.file.extra</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">"</span> --no-check-certificate<span class="pl-pds">"</span></span>)
+<span class="pl-e">shiny</span><span class="pl-k">::</span>runGitHub(<span class="pl-s1"><span class="pl-pds">'</span>DDCV<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>xtmgah<span class="pl-pds">'</span></span>)</pre></div>
 
 <blockquote>
 <p>or</p>
 </blockquote>
 
-<div class="highlight"><pre><span class="c">library(shiny)</span>
-<span class="c">options(download.file.method="wget",download.file.extra=" --no-check-certificate")</span>
-<span class="c">runUrl('https://github.com/xtmgah/DDCV/archive/master.zip')</span>
-</pre></div>
+<div class="highlight highlight-R"><pre>library(<span class="pl-vo">shiny</span>)
+options(<span class="pl-v">download.file.method</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">"</span>wget<span class="pl-pds">"</span></span>,<span class="pl-v">download.file.extra</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">"</span> --no-check-certificate<span class="pl-pds">"</span></span>)
+runUrl(<span class="pl-s1"><span class="pl-pds">'</span>https://github.com/xtmgah/DDCV/archive/master.zip<span class="pl-pds">'</span></span>)</pre></div>
 
 <p><strong>Local running</strong></p>
 
-<div class="highlight"><pre><span class="nb">cd </span>DDCV
-</pre></div>
+<div class="highlight highlight-bash"><pre><span class="pl-s3">cd</span> DDCV</pre></div>
 
 <blockquote>
 <p>then</p>
 </blockquote>
 
-<div class="highlight"><pre><span class="c">library(shiny)</span>
-<span class="c">runApp("../DDCV")</span>
-</pre></div>
+<div class="highlight highlight-R"><pre>library(<span class="pl-vo">shiny</span>)
+runApp(<span class="pl-s1"><span class="pl-pds">"</span>../DDCV<span class="pl-pds">"</span></span>)</pre></div>
 
 <blockquote>
 <p>or </p>
 </blockquote>
 
-<div class="highlight"><pre><span class="c">library(shiny)</span>
-<span class="c">source("DDCV.R")</span>
-</pre></div>
+<div class="highlight highlight-R"><pre>library(<span class="pl-vo">shiny</span>)
+source(<span class="pl-s1"><span class="pl-pds">"</span>DDCV.R<span class="pl-pds">"</span></span>)</pre></div>
 
 <h2>
-<a name="input-csv-foramt" class="anchor" href="#input-csv-foramt"><span class="octicon octicon-link"></span></a>Input CSV foramt</h2>
+<a id="input-csv-foramt" class="anchor" href="#input-csv-foramt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input CSV foramt</h2>
 
 <p><strong>Matrix</strong></p>
 
@@ -123,7 +119,8 @@
 </blockquote>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>DrugB</th>
 <th>10</th>
 <th>10</th>
@@ -141,7 +138,8 @@
 <th>1</th>
 <th>0</th>
 <th>0</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td><strong>5</strong></td>
@@ -448,7 +446,9 @@
 <td>46843</td>
 </tr>
 </tbody>
-</table><p>.........</p>
+</table>
+
+<p>.........</p>
 
 <p><strong>Column3</strong></p>
 
@@ -457,11 +457,13 @@
 </blockquote>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>DrugA</th>
 <th>DrugB</th>
 <th>Fraction</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td>5000</td>
@@ -554,10 +556,12 @@
 <td>1046</td>
 </tr>
 </tbody>
-</table><p>..............</p>
+</table>
+
+<p>..............</p>
 
 <h2>
-<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
 
 <p><strong>Parameter Panel</strong></p>
 
@@ -568,19 +572,25 @@
 <p><strong>Single and Combination Drug IC50:</strong></p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th></th>
 <th>DrugA</th>
 <th>DrugB</th>
 <th>Combination (IC50 equivalent dose)</th>
-</tr></thead>
-<tbody><tr>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>IC50</td>
 <td>2.01</td>
 <td>6.24</td>
 <td>0.64</td>
-</tr></tbody>
-</table><p><strong>Response Matrix Profile</strong></p>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Response Matrix Profile</strong></p>
 
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/rmprofile.png" alt="view"></p>
 
@@ -607,11 +617,13 @@
 </blockquote>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>CI Range</th>
 <th>Symbol</th>
 <th>Description</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td>&lt;0.1</td>
@@ -669,7 +681,9 @@
 <td>Very strong antagonism</td>
 </tr>
 </tbody>
-</table><p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/cindex.png" alt="view"></p>
+</table>
+
+<p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/cindex.png" alt="view"></p>
 
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/cindex2.png" alt="view"></p>
 
@@ -698,7 +712,7 @@
 <p><img src="https://raw.github.com/xtmgah/DDCV/master/doc/contour.png" alt="view"></p>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
