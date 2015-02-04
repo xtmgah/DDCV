@@ -3,7 +3,7 @@ DDCV
 
 A Visualized Shiny App to Evaluate Drug-Drug Interaction
 
-Project status: **Version 1.0**
+Project status: **Version 2.0**
 
 Author: [Tongwu Zhang](mailto:zhangt8@mail.nih.gov)
 

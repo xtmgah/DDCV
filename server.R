@@ -1,4 +1,5 @@
 library(shiny)
+library(shinyIncubator)
 
 ## Function to check whether package is installed
 
@@ -17,12 +18,16 @@ is.installed("lattice")
 is.installed("plyr")
 is.installed("scatterplot3d")
 
+### Add CI_range table ###
+ci_range<-read.table("data/CI_range.txt",header=T,sep="\t")
+
+
 sfiles<-list.files(path="DDCV_function/",pattern=".R",full.names=TRUE)
 for( fileA in sfiles) {source(fileA)}
 
-dfpath<-'./testdata/shapeAdata.csv'
+dfpath<-'data/shapeAdata.csv'
 
-shinyServer(function(input, output){
+shinyServer(function(input, output,session){
   
   datasetInput <- reactive({
     inFile <- input$file1
@@ -39,6 +44,9 @@ shinyServer(function(input, output){
   })
   
   
+  output$format_data<-renderDataTable({
+    datasetInput()
+    })
   
   output$view <- renderTable({  
     IC50(drMatrix=datasetInput())
@@ -59,6 +67,8 @@ shinyServer(function(input, output){
   output$isob <- renderPlot({
     isobologram(drMatrix=datasetInput(),IC50base=input$normal3)
   })
+  
+  output$ci_range<-renderTable({ ci_range })
   
   output$cindex <- renderPlot({
     cIndex(drMatrix=datasetInput(),IC50base=input$normal4) 
@@ -87,4 +97,7 @@ shinyServer(function(input, output){
   output$dcontour <- renderPlot({
     dContour(drMatrix=datasetInput())
   })
+
+ 
+
 })
