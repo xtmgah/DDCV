@@ -5,16 +5,34 @@ shinyUI(fluidPage(theme=shinytheme("united"),
   
   titlePanel("The Evaluation of Drug-Drug Combination Therapy Effect"),
  # br(),
-  p("**If you have any question about this R shiny app, Please contact",a("Tongwu Zhang",href="mailto:xtmgah@gmail.com")),
- p("Please cite our paper:",strong("\"DDCV: A Visualized R Shiny App to Evaluate Drug-Drug Interaction\""),"when pulishing results analyzed by this shiny app."),
  
+  fluidRow(
+    column(10,
+             p("**If you have any question about this R shiny app, Please contact",a("Tongwu Zhang",href="mailto:xtmgah@gmail.com")),
+             p("Please cite our paper:",strong("\"DDCV: A Visualized R Shiny App to Evaluate Drug-Drug Interaction\""),"when pulishing results analyzed by this shiny app.")
+             ),
+    column(2,
+           br(),
+             div(downloadButton('downloadPlot', 'Download All Plot (PDF)',class="btn btn-danger"),align="right")
+        
+    )
+  ),
+ 
+# 
+  
  tags$hr(),
   
   
   sidebarLayout(
     sidebarPanel(
-      fileInput('file1','Please Choose CSV File',
+      fileInput('file1','Please Choose CSV File:',
                 accept=c('text/csv','text/comma-separated-value','test/plain')),
+      p(strong('Or Download Example files:')),
+ #     br(),
+      downloadButton('downloadMatrix','Download Matrix',class='btn btn-danger' ),
+      br(),
+      br(),
+      downloadButton('downloadColumn3','Download Column3',class="btn btn-danger"),
       tags$hr(),
       radioButtons('fty','CSV File Format',c(Matrix='shapeA',Column3='shapeB'),'Matrix'),
     
@@ -36,6 +54,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
     
       br(),
       submitButton("Update View"),
+
       br(),
       p("Written and designed by Tongwu Zhang, using ",a("Shiny",href="http://shiny.rstudio.com"),"from",a("RStudio",href="http://www.rstudio.com"),"and Inc. (2015)")
 

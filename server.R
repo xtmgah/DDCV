@@ -20,6 +20,8 @@ is.installed("scatterplot3d")
 
 ### Add CI_range table ###
 ci_range<-read.table("data/CI_range.txt",header=T,sep="\t")
+#matrix_example<-read.csv("data/shapeAdata.csv",header=TRUE,stringsAsFactors=F,check.names=F)
+#column3_example<-read.csv("data/shapeBdata.csv",header=TRUE,stringsAsFactors=F,check.names=F)
 
 
 sfiles<-list.files(path="DDCV_function/",pattern=".R",full.names=TRUE)
@@ -42,61 +44,144 @@ shinyServer(function(input, output,session){
     }
     
   })
+
+    output$downloadMatrix<-downloadHandler(
+      filename=function(){
+        c("Matrix_example.csv")
+      },
+      content=function(file) {
+#        write.csv(matrix_example,file,row.names=FALSE)
+        file.copy("data/shapeAdata.csv",file)
+      }
+    )
+
+
+    output$downloadColumn3<-downloadHandler(
+      filename=function(){
+        c("column3_example.csv")
+        },
+      content=function(file) {
+#        write.csv(column3_example,file,row.names=FALSE)
+        file.copy("data/shapeBdata.csv",file)
+        
+      }
+    )
+
+
+
+    
   
   
   output$format_data<-renderDataTable({
     datasetInput()
     })
+
   
   output$view <- renderTable({  
     IC50(drMatrix=datasetInput())
   })
   
-  output$rmprofile <- renderPlot({
+
+  plotrmprofile<-reactive({
     rmProfile(drMatrix=datasetInput(),drug1=input$dname1,drug2=input$dname2)
   })
+  output$rmprofile <- renderPlot({
+    print(plotrmprofile())
+  })
   
-  output$meffect <- renderPlot({
+  plotmeffect<-reactive({
     mEffect(drMatrix=datasetInput(),IC50base=input$normal1)
   })
-  
-  output$meffect2 <- renderPlot({
+  output$meffect <- renderPlot({
+    print(plotmeffect())  
+  })
+
+  plotmeffect2<-reactive({
     mEffect2(drMatrix=datasetInput(),IC50base=input$normal2)
   })
+  output$meffect2 <- renderPlot({
+   print(plotmeffect2())
+  })
   
-  output$isob <- renderPlot({
+  plotisob<-reactive({
     isobologram(drMatrix=datasetInput(),IC50base=input$normal3)
+  })
+  output$isob <- renderPlot({
+    print(plotisob())
   })
   
   output$ci_range<-renderTable({ ci_range })
   
+  plotcindex<-reactive({
+    cIndex(drMatrix=datasetInput(),IC50base=input$normal4)
+  })
   output$cindex <- renderPlot({
-    cIndex(drMatrix=datasetInput(),IC50base=input$normal4) 
+     print(plotcindex())
   })
   
-  output$cindex2 <- renderPlot({
+  plotcindex2<-reactive({
     cIndex2(drMatrix=datasetInput(),IC50base=input$normal4) 
   })
+  output$cindex2 <- renderPlot({
+    print(plotcindex2())
+  })
   
-  output$cshift <- renderPlot({
+  plotcshift<-reactive({
     cShift(drMatrix=datasetInput(),IC50base=input$normal5)
   })
+  output$cshift <- renderPlot({
+    print(plotcshift())
+  })
   
-  output$cshift2 <- renderPlot({
+  plotcshift2<-reactive({
     cShift2(drMatrix=datasetInput(),IC50base=input$normal6)
   })
+  output$cshift2 <- renderPlot({
+    print(plotcshift2())
+    
+  })
   
-  output$usresponse <- renderPlot({
+  plotusresponse<-reactive({
     usReponse(drMatrix=datasetInput()) 
   })
+  output$usresponse <- renderPlot({
+    print(plotusresponse())
+  })
   
-  output$usresponse2 <- renderPlot({
+  plotusresponse2<-reactive({
     usReponse2(drMatrix=datasetInput()) 
   })
+  output$usresponse2 <- renderPlot({
+    print(plotusresponse2())
+  })
   
-  output$dcontour <- renderPlot({
+  plotdcontour<-reactive({
     dContour(drMatrix=datasetInput())
   })
+  output$dcontour <- renderPlot({
+    print(plotdcontour())
+  })
+
+  output$downloadPlot<- downloadHandler(
+    filename <- function() {
+    paste('DDCV_result_', Sys.Date(),'.pdf',sep='')
+  },
+  content = function(file) {
+    pdf(file,width = 12,height = 8,onefile = T)
+    plotrmprofile()
+    plotmeffect()
+    plotmeffect2() 
+    plotisob()
+    plotcindex()
+    plotcindex2()
+    plotcshift()
+    plotcshift2()
+    plotusresponse()
+    plotusresponse2()
+    plotdcontour()
+    dev.off()
+  }
+)
 
  
 
