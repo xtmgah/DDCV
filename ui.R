@@ -76,6 +76,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                  p(strong("cShift"),"Curve-shift analysis of drug-drug combination." ),
                 p(strong("Response:"),"Universal Surface Response analysis of drug-drug combination." ),
                  p(strong("Contour:"),"Loewe additivity contour plot of drug-drug combination." ),
+                p(strong("Document:"),"Manual of this R shiny app." ),
                  
                  tags$hr(),
                  h4("Drug-drug interaction prediction model"),
@@ -163,7 +164,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                  p("The contour plot can be used to guide next drug combination experiment for specific effect."),
                  img(src="contour.pdf",height=359,width=434),
                  plotOutput("dcontour")),
-        tabPanel("Documentation",
+        tabPanel("Document",
                  includeHTML("README.html"))
         
         
