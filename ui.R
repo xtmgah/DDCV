@@ -143,7 +143,11 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                  br(),
                  p("The contour plot can be used to guide next drug combination experiment for specific effect."),
                  img(src="contour.pdf",height=359,width=434),
-                 plotOutput("dcontour"))
+                 plotOutput("dcontour")),
+        tabPanel("Documentation",
+                 includeHTML("README.html"))
+        
+        
   )
     )
 )))

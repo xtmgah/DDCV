@@ -1,4 +1,11 @@
-DDCV
+---
+title: "DDCV Document"
+output:
+  html_document:
+    theme: united
+    toc: yes
+---
+DDCV Information
 ====
 
 A Visualized Shiny App to Evaluate Drug-Drug Interaction
@@ -13,7 +20,7 @@ License: DDCV is freely available under a GNU Public License (Version 2)
 
 Citation: Please cite the following article if you use DDCV in your research
 
-Tongwu Zhang *et al*. **DDCV: A visualized R Shiny App for Evaluationg Drug-Drug Interaction**. 2013.(In Prepare) 
+Tongwu Zhang *et al*. **DDCV: A Visualized R Shiny App to Evaluate Drug-Drug Interaction**. 2015.(In Prepare) 
 
 
 
@@ -88,14 +95,8 @@ source("DDCV.R")
 Input CSV foramt
 ----------------
 
-
-
-**Matrix**
-
->...
-
-|DrugB|10|10|8|8|6|6|4.5|4.5|3|3|2|2|1|1|0|0|
-|-----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
+| DrugB | 10    | 10    | 8     | 8     | 6     | 6     | 4.5   | 4.5   | 3     | 3     | 2     | 2     | 1     | 1     | 0     | 0     |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:-------:|:------:|:------:|
 |**5**|1609|1073|1459|1597|4112|3195|3709|3929|4661|5253|5539|5805|10590|10184|10931|15020|
 |**5**|1624|1898|2248|2937|3943|5139|3709|4340|4914|5614|6187|11652|9942|20365|9838|16601|
 |**4**|2493|1498|2688|2091|5485|5324|4496|4492|5523|5174|8353|9833|19715|19214|12129|27393|
@@ -113,14 +114,10 @@ Input CSV foramt
 |**0**|11291|13751|17858|13083|35769|36605|36398|37620|35052|36365|33880|33576|42494|41642|46640|46467|
 |**0**|7244|13013|12074|9639|32487|31180|32986|34580|32642|35208|32367|32937|39519|41412|45332|46843|
 
+ :**Matrix** file format.
 
 .........
 
-
-**Column3**
-
-
->....
 
 |DrugA|DrugB|Fraction|
 |-----|-----|--------|
@@ -142,8 +139,10 @@ Input CSV foramt
 |39.0625|73.4|982|
 |19.53125|73.4|1036|
 |19.53125|73.4|1046|
-..............
 
+ :**Column3** file format.
+ 
+..............
 
 
 
@@ -156,12 +155,12 @@ Example
 
 **IC50 Prediction**
 
-**Single and Combination Drug IC50:**
 
-      | DrugA | DrugB | Combination (IC50 equivalent dose)|
-------| ----- | ----- |-----------------------------------|
- IC50 |  2.01 | 6.24  |                               0.64|
+|      | DrugA | DrugB | Combination (IC50 equivalent dose)|
+|------| ----- | ----- |-----------------------------------|
+| IC50 |  2.01 | 6.24  |                               0.64|
 
+ :**Single and Combination Drug IC50:**
 
 
 **Response Matrix Profile**
@@ -184,24 +183,6 @@ Example
 
 >Combination index provides a quantitative measure of the extent of drug interaction at a given effect level.
 
->Chou and co-workers proposed semi-quantitative methods for describing the degrees of synergism antagonism
-
-
-|CI Range |Symbol |Description |
-|------|------|------|
-|<0.1 |+++++ |Verystrong synergism|
-|0.1 - 0.3|++++|Strong synergism|
-|0.3 - 0.7|+++ |Synergism |
-|0.7 - 0.85 |++ |Moderate synergism|
-|0.85 - 0.9 |+ |Slight synergism|
-|0.9 - 1.1 |+/- |Nearly additive|
-|1.1 - 1.2 |- |Slight antagonism |
-|1.2 - 1.45 |-- |Moderate antagonism |
-|1.45 - 3.3 |--- |Antagonism |
-|3.3 - 10 |---- |Strong antagonism |
-|> 10 |----- |Very strong antagonism |
-
-
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cindex.png)
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/cindex2.png)
@@ -222,7 +203,7 @@ Example
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/usr2.png)
 
-**Loewe Additivity Contour**
+**Contour Plots of Raw Data**
 
 ![view](https://raw.github.com/xtmgah/DDCV/master/doc/contour.png)
 
