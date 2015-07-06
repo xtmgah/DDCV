@@ -1,5 +1,7 @@
 library(shiny)
 library(shinythemes)
+library(d3heatmap)
+
 
 shinyUI(fluidPage(theme=shinytheme("united"),
   
@@ -9,7 +11,8 @@ shinyUI(fluidPage(theme=shinytheme("united"),
   fluidRow(
     column(10,
              p("**If you have any question about this R shiny app, Please contact",a("Tongwu Zhang",href="mailto:xtmgah@gmail.com")),
-             p("Please cite our paper:",strong("\"DDCV: A Visualized R Shiny App to Evaluate Drug-Drug Interaction\""),"when pulishing results analyzed by this shiny app.")
+             p("Please cite our paper:",strong("\"Drug-Drug Combination Visualization (DDCV): Evaluation of Drug-Drug Interactions using Shiny by RStudio\""),"when pulishing results analyzed by this shiny app."),
+           p("DDCV version: 3.0")
              ),
     column(2,
            br(),
@@ -34,7 +37,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
       br(),
       downloadButton('downloadColumn3','Download Column3',class="btn btn-danger"),
       tags$hr(),
-      radioButtons('fty','CSV File Format',c(Matrix='shapeA',Column3='shapeB'),'Matrix'),
+      radioButtons('fty','CSV File Format',choices=list("Matrix"='shapeA',"Column3 (including header)"='shapeB'),selected='shapeA'),
     
       br(),
     
@@ -56,13 +59,14 @@ shinyUI(fluidPage(theme=shinytheme("united"),
       submitButton("Update View"),
 
       br(),
-      p("Written and designed by Tongwu Zhang, using ",a("Shiny",href="http://shiny.rstudio.com"),"from",a("RStudio",href="http://www.rstudio.com"),"and Inc. (2015)")
+      p("Written and designed by Tongwu Zhang, using ",a("Shiny",href="http://shiny.rstudio.com"),"from",a("RStudio",href="http://www.rstudio.com"),". (2015)")
 
   ),
   
   
     mainPanel(
       tabsetPanel(
+        
         tabPanel("Description",
                  br(),
                  p("Evaluation of synergy or antagonism of agents used in combination therapy is an integral part of cancer chemotherapy development. Simultaneous use of multiple methods enhances the confidence of combination therapy. We developed a visualized R Shiny App to evaluated drug-drug synergy, additivity and antagonism using several published methodologies, including isobologram, combination index, curve-shift and universal surface response analysis."),
@@ -94,7 +98,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                  tableOutput("view"),
                  tags$hr(),
                  h4("Formated Data:"),
-                 dataTableOutput("format_data")),
+                 DT::dataTableOutput("format_data")),
         tabPanel("Profile",
                  br(),
                  tags$ul(
@@ -102,7 +106,15 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                  tags$li("Quickly evaluate experiment result. For example, predict IC50 range for both drugs, check outliner data, and pre-predict the drug-drug interaction by comparing drug combination data with single drug data.")
                  ),
                  br(),
-                 plotOutput("rmprofile")),
+                 p(strong("Response Matrix Profile"),align = "center"),
+#                 p("X: DrugA dose | Y: DrugB dose",align = "center"),
+                 br(),
+                 d3heatmapOutput("heatmap"),
+                 br(),
+                 textOutput("htleg")),
+#                 plotOutput("rmprofile")),
+
+        
         tabPanel("Effect",
                  br(),
                  tags$ul(
@@ -165,7 +177,8 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                  img(src="contour.png",height=359,width=434),
                  plotOutput("dcontour")),
         tabPanel("Document",
-                 includeHTML("README.html"))
+                 includeMarkdown("README.md"))
+#                  includeHTML("README.html"))
         
         
   )

@@ -1,5 +1,5 @@
 library(shiny)
-library(shinyIncubator)
+#library(shinyIncubator)
 
 ## Function to check whether package is installed
 
@@ -17,6 +17,24 @@ is.installed("reshape2")
 is.installed("lattice")
 is.installed("plyr")
 is.installed("scatterplot3d")
+is.installed("shinythemes")
+is.installed("d3heatmap")
+is.installed("DT")
+
+library("shiny")
+library("ggplot2")
+library("gplots")
+library("reshape2")
+library("lattice")
+library("plyr")
+library("scatterplot3d")
+library("shinythemes")
+library("d3heatmap")
+library("DT")
+library("dplyr")
+library("markdown")
+
+
 
 ### Add CI_range table ###
 ci_range<-read.table("data/CI_range.txt",header=T,sep="\t")
@@ -67,13 +85,16 @@ shinyServer(function(input, output,session){
       }
     )
 
-
-
-    
   
-  
-  output$format_data<-renderDataTable({
-    datasetInput()
+  output$format_data<-DT::renderDataTable({
+    tmpdata<-datasetInput() 
+    datatable(tmpdata,extensions = 'TableTools', rownames = FALSE,options = list(dom = 'T<"clear">lfrtip',tableTools = list(sSwfPath = copySWF('www')))) %>% 
+      formatRound(3,3) %>% 
+                formatStyle('Fraction',
+      background = styleColorBar(tmpdata$Fraction, '#a8ce1b'),
+      backgroundSize = '100% 90%',
+      backgroundRepeat = 'no-repeat',
+      backgroundPosition = 'center')
     })
 
   
@@ -85,9 +106,18 @@ shinyServer(function(input, output,session){
   plotrmprofile<-reactive({
     rmProfile(drMatrix=datasetInput(),drug1=input$dname1,drug2=input$dname2)
   })
+  
   output$rmprofile <- renderPlot({
     print(plotrmprofile())
   })
+  
+  
+  output$heatmap <- renderD3heatmap({
+    d3heatmap(rmheatmap(datasetInput()), colors = greenred(75),dendrogram = "none",cexRow=1,cexCol = 1)
+  })
+  
+  output$htleg <- renderText({paste0("X: ",input$dname1," dose | ","Y: ", input$dname2," dose")})
+
   
   plotmeffect<-reactive({
     mEffect(drMatrix=datasetInput(),IC50base=input$normal1)
