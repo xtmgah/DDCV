@@ -205,8 +205,7 @@ Example
 
 **Parameter Panel**
 
-![view](https://raw.github.com/xtmgah/DDCV/master/doc/panel.png)
-
+<img src="https://raw.github.com/xtmgah/DDCV/master/doc/panel.png" width="433" height="801" />
 **IC50 Prediction**
 
 **Single and Combination Drug IC50:**
