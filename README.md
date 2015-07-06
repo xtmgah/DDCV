@@ -2,7 +2,7 @@
 title: "DDCV Document"
 output:
   html_document:
-    theme: journal
+    theme: united
     toc: yes
 ---
 
