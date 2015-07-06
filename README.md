@@ -206,9 +206,13 @@ Example
 **Parameter Panel**
 
 <img src="https://raw.github.com/xtmgah/DDCV/master/doc/panel.png" width="433" height="801" />
+
+
+
 **IC50 Prediction**
 
 **Single and Combination Drug IC50:**
+
 
       | DrugA | DrugB | Combination (IC50 equivalent dose)  |
 ------| ------ | ------ |------ |
