@@ -8,11 +8,12 @@
 
 
 
-mEffect2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
+mEffect3 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   
   cols=c("#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#66aa00","#b82e2e","#316395","#994499","#22aa99","#aaaa11","#6633cc","#e67300","#8b0707","#651067","#329262","#5574a6","#3b3eac","#b77322","#16d620","#b91383","#f4359e","#9c5935","#a9c413","#2a778d","#668d1c","#bea413","#0c5922","#743411")
   #cols=c("blue","red","green4")  
   #names(drMatrix)<-c("Drug1","Drug2","Fraction")
+  drMatrix<-drMatrix[,c(2,1,3)]
   var.name <- names(drMatrix)
   
   xlabn<-paste("Log(",var.name[1]," concentration)",sep="")
@@ -60,14 +61,14 @@ mEffect2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
     abline(lm,lty=i,col=cols[i])
   }
   
-  title("Median Effect by drugA" )
+  title("Median Effect by drugB" )
   
   par(mar=c(0,0,0,0))
   plot.new()
   lname <- paste0(var.name[2]," \nconcentration")
   if(IC50base){lname <- paste0(var.name[2]," IC50 equivalent\nconcentration")}
   legend("center",title=lname,legend=round(unique(dose2),2),cex=1,pch=pchi[1:length(unique(dose2))],lty=1:length(unique(dose2)),bty="n",col=cols[1:length(unique(dose2))])
-  par(def.par) 
+ par(def.par) 
 #  dev.off()
   
 }

@@ -7,7 +7,7 @@
 #' @export
 
 
-isobologram <- function (drMatrix,drug1Base=1, drug2Base=1, IC50base=FALSE) {
+isobologram <- function (drMatrix,drug1Base=1, drug2Base=1, IC50base=FALSE,units="μM") {
   
   require(ggplot2)
   
@@ -68,22 +68,23 @@ isobologram <- function (drMatrix,drug1Base=1, drug2Base=1, IC50base=FALSE) {
   
 p<- ggplot(dff,aes(x=factor(round(d1,2)),y=factor(round(d2,2)),col=factor(syn,levels=c("Synergy","Antagonism","Additivity"))))+
     geom_point(aes(size=log(abs(temp))),shape=19)+
-    scale_size_continuous(range=c(1,10))+
-    guides(size=FALSE)+
-    scale_color_manual("",breaks=c("Synergy","Antagonism","Additivity"),values=c("green","red","black"))+
-    xlab(paste0("\n",colnames(drMatrix)[1]," dose"))+
-    ylab(paste0(colnames(drMatrix)[2]," dose\n"))+
+#    guides(size=FALSE)+
+    scale_color_manual("Drug-Drug interaction",breaks=c("Synergy","Antagonism","Additivity"),values=c("green","red","black"))+
+  scale_size_continuous("Interaction Strength", range=c(1,10))+
+    xlab(paste0("\n",colnames(drMatrix)[1]," concentration (",units,")"))+
+    ylab(paste0(colnames(drMatrix)[2]," concentration (",units,")\n"))+
     ggtitle("Isobologram\n")+
     theme(
       panel.background = element_blank(),
       legend.text = element_text(size = 10),
       plot.title = element_text(face="bold",colour="black"),
-      legend.key = element_blank(),
+ #     legend.key = element_blank(),
+      legend.position = "bottom",
       panel.grid.major = element_line(linetype = "dotted", colour = "grey"),
       panel.grid.minor = element_line(linetype = "dotted", colour = "grey50")
       )
   
-  print(p)
+  return(p)
 
   
 }

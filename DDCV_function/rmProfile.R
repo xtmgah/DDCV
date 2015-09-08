@@ -5,21 +5,25 @@
 #' @param drug2 second drug name
 #' @export
 
-rmProfile <- function (drMatrix,drug1="Drug1",drug2="Drug2")  {
-    require(ggplot2)
-#    Ndigits=2  
-    # New ggplot2 theme
-    theme_blank_ztw<-theme(panel.background = element_blank())+
+
+
+rmProfile <- function (drMatrix,drug1="Drug1",drug2="Drug2",units="μM")  {
+#    mcols <- terrain.colors(30)
+    mcols <- colorRampPalette(c("#ec4335","yellow","#35a853"),space="Lab")(30)
+
+#      require(ggplot2)
+  theme_blank_ztw<-theme(panel.background = element_blank())+
     theme(panel.grid.minor=element_blank()) +
     theme(axis.ticks = element_blank()) +
     theme(panel.grid.major=element_blank()) +
-    theme(legend.position = "none")+
+    theme(legend.position = "bottom")+
     theme(axis.ticks = element_line())+
+    theme(legend.key.width=unit(5,"line"))+
     theme(plot.title = element_text(face="bold"))
-    
-    names(drMatrix)<-c("Drug1","Drug2","Fraction")  
-  p<-ggplot(drMatrix,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.1f",100*(1-Fraction)),size=10))+geom_tile(aes(fill=Fraction))+geom_text(aes(size=10))+scale_fill_gradient(low="green",high="red")+xlab(paste0("\n",drug1," dose"))+ylab(paste0(drug2," dose\n"))+theme_blank_ztw+ggtitle("Response Matrix Profile")
-  print(p)
-    
-    
+  
+  names(drMatrix)<-c("Drug1","Drug2","Fraction")  
+  p<-ggplot(drMatrix,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.3f",(1-Fraction))))+geom_tile(aes(fill=1-Fraction))+geom_text(size=4.5)+scale_fill_gradientn(name = "Effect fraction\n", colours = mcols)+xlab(paste0("\n",drug1," concentration (",units,")"))+ylab(paste0(drug2," concentration (",units,")\n"))+theme_blank_ztw+ggtitle("Response Matrix Profile\n")
+  #scale_fill_gradient(name = "Effect fraction\n", low = "#ec4335",high = "#35a853")
+  #scale_fill_gradientn(name = "Effect fraction\n", colours = mcols)
+  return(p)
 }

@@ -14,11 +14,12 @@ cShift2 <- function (drMatrix, drug1Base=1, drug2Base=1,IC50base=TRUE) {
   
   #names(drMatrix)<-c("Drug1","Drug2","Fraction")
   var.name <- names(drMatrix)
-  
+  xlabn<-paste("\nLog(",var.name[1]," concentration)",sep="")
   if(IC50base){
     ic50 <- IC50(drMatrix)
     drug1Base <- as.numeric(ic50[1])
     drug2Base <- as.numeric(ic50[2])
+    xlabn<-paste0("\nLog(",var.name[1]," IC50 equivalent Dose)")
   }
   
   dose1 <- drMatrix[,1]/drug1Base
@@ -46,7 +47,7 @@ cShift2 <- function (drMatrix, drug1Base=1, drug2Base=1,IC50base=TRUE) {
   
   par(mar=c(5.1, 4.1, 4.1, 1))
   pchi<-c(16,1:15,17,18)
-  plot(log(totdose[ind3]),fa[ind3],type='n',xlab=paste0("\nLog(",var.name[1]," IC50 equivalent Dose)"),ylab="Effect", ylim=c(0,1),xlim=c(log(min(dose1[ind3])),log(max(totdose[ind3]))))
+  plot(log(totdose[ind3]),fa[ind3],type='n',xlab=xlabn,ylab="Effect fraction", ylim=c(0,1),xlim=c(log(min(dose1[ind3])),log(max(totdose[ind3]))))
   
   for (i in 1:length(unique(dose2))) { 
     
@@ -60,11 +61,14 @@ cShift2 <- function (drMatrix, drug1Base=1, drug2Base=1,IC50base=TRUE) {
     
   }
   
-  title("Curve-shift II" )
+  title("Curve-Shift by drugA" )
+  
+  lname <- paste0(var.name[2]," \nconcentration")
+  if(IC50base){lname <- paste0(var.name[2]," IC50 equivalent\nconcentration")}
   
   par(mar=c(0,0,0,0))
   plot.new()
-  legend("center",title=paste(var.name[2],"dose"),legend=round(unique(dose2),2),cex=1,pch=pchi[1:length(unique(dose2))],lty=1:length(unique(dose2)),bty="n",col=cols[1:length(unique(dose2))])
+  legend("center",title=lname,legend=round(unique(dose2),2),cex=1,pch=pchi[1:length(unique(dose2))],lty=1:length(unique(dose2)),bty="n",col=cols[1:length(unique(dose2))])
   par(def.par)   
   
 }

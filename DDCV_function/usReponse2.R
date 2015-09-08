@@ -5,7 +5,8 @@
 #' @export
 
 
-usReponse2 <- function (drMatrix) {
+usReponse2 <- function (drMatrix,units="μM") {
+  mcols <- colorRampPalette(c("#ec4335","yellow","#35a853"),space="Lab")(30)
   
   require(ggplot2)
   var.name <- names(drMatrix)
@@ -67,18 +68,19 @@ usReponse2 <- function (drMatrix) {
     theme(panel.grid.major=element_blank()) +
     #theme(legend.position = "none")+
     theme(axis.ticks = element_line())+
+    theme(legend.key.width=unit(5,"line"))+
+    theme(legend.position = "bottom")+
     theme(plot.title = element_text(face="bold"))
   drug1<-names(drMatrix)[1]
   drug2<-names(drMatrix)[2]
   p<-ggplot(newdata,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.1f",Alpha),size=10))+
-    geom_tile(aes(fill=Alpha))+geom_text(aes(size=10))+
+    geom_tile(aes(fill=Alpha))+geom_text(size=4.5)+
     guides(size=FALSE)+
-    scale_fill_gradient(low="red",high="green")+
-    #    scale_fill_manual(values=rainbow(5),breaks=c(0.5,1,1.5), labels=c('+++','+','-'))+
-    xlab(paste0("\n",drug1," dose"))+
-    ylab(paste0(drug2," dose\n"))+
+    scale_fill_gradientn(name = "Alpha\n", colours = mcols)+
+    xlab(paste0("\n",drug1," concentration (",units,")"))+
+    ylab(paste0(drug2," concentration (",units,")\n"))+
     theme_blank_ztw+
-    ggtitle("Universal Surface Response II")
-  print(p)
+    ggtitle("Universal Surface Response (Heatmap)")
+  return(p)
   
 }

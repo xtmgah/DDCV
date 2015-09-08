@@ -71,7 +71,10 @@ mEffect <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=TRUE) {
   
   par(mar=c(5.1, 4.1, 4.1, 1))
   
-  plot(logd,resp,type='n',xlab=paste0("Log(",keynames[1]," IC50 equivalent dose)"),ylab='Log(fa/(1-fa))')
+  lname <- c("Log(Drug concentration)")
+  if(IC50base){lname <- c("Log(Drug IC50 equivalent concentration)")}
+  
+  plot(logd,resp,type='n',xlab=lname,ylab='Log(fa/(1-fa))')
   abline(h=0,lty=2,col="gray80")
   abline(lm1,lty=4,col=cols[1])
   points(logd[ind1],resp[ind1],pch=15,col=cols[1])

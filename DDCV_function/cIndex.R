@@ -103,7 +103,7 @@ cIndex <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   ##     print(sumtable2)
   t.seg <- 0.005
   #plot(fax, iix, xlab="Proportion Surviving (E)", ylab="Interaction Index", type="l", ylim=c(0,min(20,max(iix)+0.5)),col=cols[1])
-  plot(fax, iix, xlab="Effect", ylab="Combination Index", type="l", ylim=c(0,min(20,max(iixo*exp(1.96*stderr/iixo))+0.5)),col=cols[1])
+  plot(fax, iix, xlab="Effect fraction", ylab="Combination Index", type="l", ylim=c(0,min(20,max(iixo*exp(1.96*stderr/iixo))+0.5)),col=cols[1])
   points(fa12, iixo, pch=16,col=cols[2])
   segments(fa12,iixo*exp(-1.96*stderr/iixo),fa12,iixo*exp(1.96*stderr/iixo),col=cols[3])
   segments(fa12-t.seg, iixo*exp(-1.96*stderr/iixo), fa12+t.seg, iixo*exp(-1.96*stderr/iixo),col=cols[3])
@@ -111,6 +111,6 @@ cIndex <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   abline(h=1, lty=4)
   title("Combination Index")
   
-  return(sumtable2)
+ # return(sumtable2)
   
 }

@@ -2,7 +2,7 @@
 title: "DDCV Document"
 output:
   html_document:
-    theme: united
+    theme: journal
     toc: yes
 ---
 
@@ -27,7 +27,7 @@ DDCV Information
 
 A Visualized Shiny App to Evaluate Drug-Drug Interaction
 
-Project status: **Version 3.0**
+Project status: **Version 4.0**
 
 <Author: [Tongwu Zhang](mailto:zhangt8@mail.nih.gov)>
 
@@ -205,14 +205,11 @@ Example
 
 **Parameter Panel**
 
-<img src="https://raw.github.com/xtmgah/DDCV/master/doc/panel.png" width="433" height="801" />
-
-
+![view](https://raw.github.com/xtmgah/DDCV/master/doc/panel.png)
 
 **IC50 Prediction**
 
 **Single and Combination Drug IC50:**
-
 
       | DrugA | DrugB | Combination (IC50 equivalent dose)  |
 ------| ------ | ------ |------ |
@@ -230,6 +227,7 @@ Example
 
 <img src="https://raw.github.com/xtmgah/DDCV/master/doc/meffect.png" width="914" height="400" />
 <img src="https://raw.github.com/xtmgah/DDCV/master/doc/meffect2.png" width="914" height="400" />
+<img src="https://raw.github.com/xtmgah/DDCV/master/doc/meffect3.png" width="914" height="400" />
 
 
 **Isobologram**
@@ -247,12 +245,14 @@ Example
 <img src="https://raw.github.com/xtmgah/DDCV/master/doc/cindex2.png" width="914" height="400" />
 
 
+
 **Curve-shift**
 
 >Curve-shift analysis allows simultaneous presentation of the studied concentration-effect curves of single-agent and combination treatments in a single plot. 
 
 <img src="https://raw.github.com/xtmgah/DDCV/master/doc/cshift.png" width="914" height="400" />
 <img src="https://raw.github.com/xtmgah/DDCV/master/doc/cshift2.png" width="914" height="400" />
+<img src="https://raw.github.com/xtmgah/DDCV/master/doc/cshift3.png" width="914" height="400" />
 
 
 **Universal Surface Response**

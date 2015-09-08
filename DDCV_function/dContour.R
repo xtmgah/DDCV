@@ -4,7 +4,7 @@
 
 
 
-dContour <- function (drMatrix,contour.level=(1:9)/10) {
+dContour <- function (drMatrix,contour.level=(1:9)/10,units="μM") {
   
   require(gplots)
   drMatrix<-drMatrix[drMatrix[,1]!=0 & drMatrix[,2]!=0,]
@@ -17,7 +17,7 @@ dContour <- function (drMatrix,contour.level=(1:9)/10) {
   temp1 <- sort(unique(dose1))
   temp2 <- sort(unique(dose2))
   obsfa <- matrix(fa, length(temp1),length(temp2), byrow=T)
-  filled.contour(temp1,temp2, obsfa, levels=contour.level, xlab=paste0("Log(",var.name[1]," dose)"),ylab=paste0("Log(",var.name[2]," dose)"),col=redgreen(length(contour.level)))
-  title("Contour Plots of Raw Data")
+  filled.contour(temp1,temp2, obsfa, levels=contour.level, xlab=paste0("Log(",var.name[1]," concentration, ",units,")"),ylab=paste0("Log(",var.name[2]," concentration, ",units,")"),col=colorRampPalette(c("#ec4335","yellow","#35a853"),space="Lab")(length(contour.level)))
+  title("Contour Plot (Effect Fraction)")
   
 }

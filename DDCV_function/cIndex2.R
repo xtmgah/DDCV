@@ -8,7 +8,7 @@
 #' @export
 
 
-cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
+cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE,units="μM") {
   require(ggplot2)
   cols=c("blue","red","green4")  
   d2.d1=unique(drMatrix[,2])[2]/unique(drMatrix[,1])[2]
@@ -100,7 +100,6 @@ cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
   sumtable2[,7] <- stderr
   sumtable2[,8] <- iixo*exp(-1.96*stderr/iixo)
   sumtable2[,9] <- iixo*exp(1.96*stderr/iixo)
-  ##     print(sumtable2)
   
   newdata<-data.frame(sumtable2[,c(1,2,6)])
   names(newdata)<-c("Drug1","Drug2","CI")  
@@ -128,19 +127,20 @@ cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
     theme(axis.ticks = element_blank()) +
     theme(panel.grid.major=element_blank()) +
 #    theme(legend.position = "none")+
+    theme(legend.position = "bottom")+
     theme(axis.ticks = element_line())+
     theme(plot.title = element_text(face="bold"))
   drug1<-names(drMatrix)[1]
   drug2<-names(drMatrix)[2]
-  p<-ggplot(newdata,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.1f",CI),size=10))+
-    geom_tile(aes(fill=Symbol))+geom_text(aes(size=10))+
+  p<-ggplot(newdata,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.1f",CI)))+
+    geom_tile(aes(fill=Symbol))+geom_text(size=4.5)+
     guides(size=FALSE)+
     scale_fill_brewer(type="div",palette=8)+
 #    scale_fill_manual(values=rainbow(5),breaks=c(0.5,1,1.5), labels=c('+++','+','-'))+
-    xlab(paste0("\n",drug1," dose"))+
-    ylab(paste0(drug2," dose\n"))+
+    xlab(paste0("\n",drug1," concentration (",units,")"))+
+    ylab(paste0(drug2," concentration (",units,")\n"))+
     theme_blank_ztw+
-    ggtitle("Combination Index II")
-  print(p)
+    ggtitle("Combination Index (Heatmap)")
+  return(p)
   
 }
