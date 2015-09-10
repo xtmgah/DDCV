@@ -122,6 +122,9 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          p(strong("Response:"),"Universal Surface Response analysis of drug-drug combination." ),
                                          p(strong("Contour:"),"Loewe additivity contour plot of drug-drug combination." ),
                                          p(strong("Document:"),"Manual of this R shiny app." ),
+                                         br(),
+                                         
+                                         p("If you want to download the realy data in manuscript, please click this link:",a("TMZ_AZD7762_DATA",href="https://raw.github.com/xtmgah/DDCV/master/data/Manuscript_Data.zip")),
                                          
                                          tags$hr(),
                                          h4("Drug-drug interaction prediction model"),
