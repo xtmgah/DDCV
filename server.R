@@ -159,7 +159,9 @@ shinyServer(function(input, output,session){
     colnames(tmpdata)[1]<-paste0(colnames(tmpdata)[1]," concentration"," (",input$unit1,")")
     colnames(tmpdata)[2]<-paste0(colnames(tmpdata)[2]," concentration"," (",input$unit2,")")
     colnames(tmpdata)[3] <- "Effect fraction"
-    datatable(tmpdata,extensions = 'TableTools', rownames = FALSE,options = list(dom = 'T<"clear">lfrtip',tableTools = list(sSwfPath = copySWF('www')))) %>% 
+    tmpdata[,1]<-as.character(tmpdata[,1])
+    tmpdata[,2]<-as.character(tmpdata[,2])
+    datatable(tmpdata,extensions = 'TableTools', rownames = FALSE,filter = list(position = 'top', clear = FALSE),options = list(dom = 'T<"clear">lfrtip',tableTools = list(sSwfPath = copySWF('www')))) %>% 
       formatRound(3,3) %>% 
       formatStyle('Effect fraction',
                   background = styleColorBar(tmpdata$`Effect fraction`, '#a8ce1b'),

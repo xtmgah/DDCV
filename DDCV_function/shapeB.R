@@ -6,7 +6,7 @@
 #' @param drug2 second drug name
 #' @return standard model input data
 #' @export
-shapeB <- function (inputFile, drug1="Drug1", drug2="Drug2", threeColumn=2:4, swap=FALSE) {
+shapeB <- function (inputFile, drug1="Drug1", drug2="Drug2", threeColumn=1:3, swap=FALSE) {
   #options(digits=2)
   require(reshape2)
   require(plyr)

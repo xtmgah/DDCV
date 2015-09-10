@@ -1,3 +1,4 @@
+
 library(shiny)
 library(shinythemes)
 
@@ -301,6 +302,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          p(strong("Equation used in this method:")),
                                          
                                          img(src="URS.png",height=92,width=620),
+                                         p("Alpha (α)> 0 for synergy and Alpha (α) < 0 for Antagonism"),
                                          br(),
                                          br(),
                                          p(strong("References:")),
