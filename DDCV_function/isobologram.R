@@ -7,7 +7,7 @@
 #' @export
 
 
-isobologram <- function (drMatrix,drug1Base=1, drug2Base=1, IC50base=FALSE,units="μM") {
+isobologram <- function (drMatrix,drug1Base=1, drug2Base=1, IC50base=FALSE,unit1="μM",unit2="μM") {
   
   require(ggplot2)
   
@@ -71,8 +71,8 @@ p<- ggplot(dff,aes(x=factor(round(d1,2)),y=factor(round(d2,2)),col=factor(syn,le
 #    guides(size=FALSE)+
     scale_color_manual("Drug-Drug interaction",breaks=c("Synergy","Antagonism","Additivity"),values=c("green","red","black"))+
   scale_size_continuous("Interaction Strength", range=c(1,10))+
-    xlab(paste0("\n",colnames(drMatrix)[1]," concentration (",units,")"))+
-    ylab(paste0(colnames(drMatrix)[2]," concentration (",units,")\n"))+
+    xlab(paste0("\n",colnames(drMatrix)[1]," concentration (",unit1,")"))+
+    ylab(paste0(colnames(drMatrix)[2]," concentration (",unit2,")\n"))+
     ggtitle("Isobologram\n")+
     theme(
       panel.background = element_blank(),

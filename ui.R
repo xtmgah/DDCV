@@ -36,7 +36,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                  fileInput('file1','Please Choose CSV File:',
                                            accept=c('text/csv','text/comma-separated-value','test/plain')),
                                  p(strong('Or')),
-                                 actionButton('loading',' Loading example data',class='btn btn-primary',class = "fa fa-arrow-circle-up" ),
+                                 actionButton('loading',' Load example data',class='btn btn-primary',class = "fa fa-arrow-circle-up" ),
                                  tags$script('
         Shiny.addCustomMessageHandler("resetFileInputHandler", function(x) {   
           var el = $("#" + x);
@@ -55,14 +55,30 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                  
                                  br(),
                                  
-                                 textInput('dname1','DrugA Name (no space):','DrugA'),
-                                 textInput('dname2', 'DrugB Name (no space):','DrugB'),
+                                 strong("DrugA Name and Unit:"),
+                                 fluidRow(
+                                   column(8,
+                                          textInput('dname1','','DrugA')
+                                   ),
+                                   column(4,
+                                          textInput('unit1','','µM')
+                                   )
+                                 ),
                                  
-                                 textInput('units','Drug concentration units:','µM'),
+                                 strong("DrugB Name and Unit:"),
+                                 fluidRow(
+                                   column(8,
+                                          textInput('dname2','','DrugB')
+                                   ),
+                                   column(4,
+                                          textInput('unit2','','µM')
+                                   )
+                                 ),
+                                 
                                  hr(),
                                  
                                  checkboxInput('swap',strong('Swap data'),FALSE),
-                                 br(),
+                                # br(),
                                  
                                  strong("IC50 normalization for:"),
                                  checkboxInput("normal1","Median Effect plots",TRUE),
@@ -96,7 +112,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          p("Evaluating drug-drug interactions is important to medicine, especially for cancer combination therapy. Drug-drug interactions, including synergistic, antagonistic, and additive, are usually determined using in vitro studies. Multiple computational approaches have been developed to analyze experimental data for evaluating drug-drug interactions, however, freely-available software implementations for drug combination analyses are lacking, and it remains difficult to visualize experimental results with commercial software. We developed Drug-Drug Combination Visualization (DDCV) software to evaluate drug-drug interactions. DDCV is implemented as an R Shiny App, which turns analysis into interactive web applications. DDCV can compare and visualize several published methodologies for evaluating the nature of drug-drug interactions, i.e., isobologram, combination index, curve-shift analysis and universal surface response analysis. In addition, DDCV can be used to check data quality as well as drug combination effects in drug combination experiments."),
                                          br(),
                                          p("Please choose each table to view drug-drug combination analysis results."),
-                                         p(strong("Data:"),"Review your uploaded preprocess data and predict both single drug and drug-drug combination IC50." ),
+                                         p(strong("Data:"),"Review your uploaded preprocessed data and predict both single drug and drug-drug combination IC50." ),
                                          p(strong("Profile:"),"Heatmap of drug-durg combination response matrix profile." ),
                                          p(strong("Effect:"),"Median effect analysis of both single drug and drug-drug combination" ),
                                          p(strong("Isobologram:"),"Isobologram analysis of drug-drug combination." ),
@@ -116,20 +132,23 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                 ),
                                 tabPanel("Data",
                                          br(),
-                                         h4("IC50 prediction for single drug and drug-drug combination: "),
-                                         
+                                         tags$u(strong("IC50 prediction for single drug and drug-drug combination: ")),
+                                         br(),
+                                         br(),
                                          conditionalPanel(
                                            condition = "output.fileUploaded",messinfo),
                                          
                                          tableOutput("view"),
                                          tags$hr(),
-                                         h4("Preprocessed data:"),
+                                         tags$u(strong("Preprocessed data:")),
+                                         br(),
+                                         br(),
                                          conditionalPanel(
                                            condition = "output.fileUploaded",messinfo),
                                          DT::dataTableOutput("format_data")),
                                 tabPanel("Profile",
                                          br(),
-                                         tags$ul(strong("Response matrix profile:"),
+                                         tags$ul(tags$u(strong("Response matrix profile:")),
                                                  tags$li("Shows the effect of both single and combination drug doses. Each value is the effect fraction, with hight effects shown in green and low effects shown in red.")
                                          ),
                                          conditionalPanel(
@@ -142,7 +161,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                 
                                 tabPanel("Effect",
                                          br(),
-                                         tags$ul(strong("Median effect plot:"),
+                                         tags$ul(tags$u(strong("Median effect plot:")),
                                                  tags$li("Identifies IC50 values for both single drugs and the drug-drug combination."),
                                                  tags$li("Allows for evaluation of how well the data points fit a linear model."),
                                                  tags$li("Illustartes slope/effect  changes between single drugs and combination.")
@@ -169,7 +188,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                 
                                 tabPanel("Isobologram",
                                          br(),
-                                         tags$ul(strong("Isobologram plot:"),
+                                         tags$ul(tags$u(strong("Isobologram plot:")),
                                                  tags$li("Shows the drug-drug synergy or antagonism and interaction strength of each drug cobmination dose.")), 
                                          conditionalPanel(
                                            condition = "output.fileUploaded",messinfo),
@@ -189,7 +208,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                 ),
                                 tabPanel("cIndex",
                                          br(),
-                                         tags$ul(strong("Combination Index (CI) plot:"),
+                                         tags$ul(tags$u(strong("Combination Index (CI) plot:")),
                                                  tags$li("Describes the degree of synergism and antagonism by a semi-quantitative method."),
                                                  tags$li("Calculates CI value in all drug combiantion concentration."),
                                                  tags$li("Calculates 96% confidence interval (error bar) based on predicted model."),
@@ -233,7 +252,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                 tabPanel("cShift",
                                          br(),
                                          
-                                         tags$ul(strong("Curve Shift plot:"),
+                                         tags$ul(tags$u(strong("Curve Shift plot:")),
                                                  tags$li("Allows simultaneous presentation of the studied concentration effect curves of single agent and combination treatments in a single plot.")),
                                          
                                          br(),
@@ -267,16 +286,16 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          br(),
                                          
                                          
-                                         tags$ul(strong("Universal Surface Response plot:"),
+                                         tags$ul(tags$u(strong("Universal Surface Response plot:")),
                                                  tags$li("Assumes that the concentration effect relationship for each drug separately follows the Hill equation and is designed to simultaneously fit all combination data to a single function.")),
                                          br(),
                                          conditionalPanel(
                                            condition = "output.fileUploaded",messinfo),
-                                         plotOutput("usresponse"),
+                                         plotOutput("usresponse",height = 500),
                                          
                                          conditionalPanel(
                                            condition = "output.fileUploaded",messinfo),
-                                         plotOutput("usresponse2"),
+                                         plotOutput("usresponse2",height = 500),
                                          
                                          br(),
                                          p(strong("Equation used in this method:")),
@@ -294,12 +313,12 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                 tabPanel("Contour",
                                          br(),
                                          
-                                         tags$ul(strong("Contour plot:"),
+                                         tags$ul(tags$u(strong("Contour plot:")),
                                                  tags$li("allows to visualize and predict effect fraction data")),
                                          br(),
                                          conditionalPanel(
                                            condition = "output.fileUploaded",messinfo),
-                                         plotOutput("dcontour"),
+                                         plotOutput("dcontour",height = 500),
                                          br(),
                                          p(strong("Schematic diagram:")),                                         img(src="contour.png",height=359,width=434),
                                          p(strong("References:")),

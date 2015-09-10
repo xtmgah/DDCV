@@ -8,7 +8,7 @@
 #' @export
 
 
-cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE,units="μM") {
+cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE,unit1="μM",unit2="μM") {
   require(ggplot2)
   cols=c("blue","red","green4")  
   d2.d1=unique(drMatrix[,2])[2]/unique(drMatrix[,1])[2]
@@ -137,8 +137,8 @@ cIndex2 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE,units="�
     guides(size=FALSE)+
     scale_fill_brewer(type="div",palette=8)+
 #    scale_fill_manual(values=rainbow(5),breaks=c(0.5,1,1.5), labels=c('+++','+','-'))+
-    xlab(paste0("\n",drug1," concentration (",units,")"))+
-    ylab(paste0(drug2," concentration (",units,")\n"))+
+    xlab(paste0("\n",drug1," concentration (",unit1,")"))+
+    ylab(paste0(drug2," concentration (",unit2,")\n"))+
     theme_blank_ztw+
     ggtitle("Combination Index (Heatmap)")
   return(p)

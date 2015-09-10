@@ -5,7 +5,7 @@
 #' @export
 
 
-usReponse <- function (drMatrix,units="μM") {
+usReponse <- function (drMatrix,unit1="μM",unit2="μM") {
   
   require(scatterplot3d)
   var.name <- names(drMatrix)
@@ -64,7 +64,7 @@ usReponse <- function (drMatrix,units="μM") {
   c3d[alpha==0]<-"black"
   
   
-  scatterplot3d(log(tdose1),log(tdose2),1-tfa,xlab=paste0("Log(",var.name[1]," concentration, ",units,")"),ylab=paste0("Log(",var.name[2]," concentration, ",units,")"),zlab="Uneffect fraction",col.grid="lightblue",pch=20,type="h",color=c3d,lty.hplot=3,box=F,cex.symbols=1.4)  
+  scatterplot3d(log(tdose1),log(tdose2),1-tfa,xlab=paste0("Log(",var.name[1]," concentration, ",unit1,")"),ylab=paste0("Log(",var.name[2]," concentration, ",unit2,")"),zlab="Uneffect fraction",col.grid="lightblue",pch=20,type="h",color=c3d,lty.hplot=3,box=F,cex.symbols=1.4)  
   legend("topright",c("Synergy","Antagonism"),col=c("green4","red"),pch=20,bty="n")
   title("Universal Surface Response (3D map)")
   return(sumtable3)

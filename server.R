@@ -106,6 +106,12 @@ shinyServer(function(input, output,session){
       tname2 <- input$dname2
       updateTextInput(session,inputId = "dname1",value =tname2)
       updateTextInput(session,inputId = "dname2",value =tname1)
+      
+      tunit1 <- input$unit1
+      tunit2 <- input$unit2
+      updateTextInput(session,inputId = "unit1",value =tunit2)
+      updateTextInput(session,inputId = "unit2",value =tunit1)
+    
     })
     
   })
@@ -150,7 +156,8 @@ shinyServer(function(input, output,session){
   output$format_data<-DT::renderDataTable({
     tmpdata<-datasetInput() 
     tmpdata[,3]=1-tmpdata[,3]
-    colnames(tmpdata)[1:2]<-paste0(colnames(tmpdata)[1:2]," concentration"," (",input$units,")")
+    colnames(tmpdata)[1]<-paste0(colnames(tmpdata)[1]," concentration"," (",input$unit1,")")
+    colnames(tmpdata)[2]<-paste0(colnames(tmpdata)[2]," concentration"," (",input$unit2,")")
     colnames(tmpdata)[3] <- "Effect fraction"
     datatable(tmpdata,extensions = 'TableTools', rownames = FALSE,options = list(dom = 'T<"clear">lfrtip',tableTools = list(sSwfPath = copySWF('www')))) %>% 
       formatRound(3,3) %>% 
@@ -167,7 +174,7 @@ shinyServer(function(input, output,session){
   })
   
   output$rmprofile <- renderPlot({
-    print(rmProfile(drMatrix=datasetInput(),drug1=input$dname1,drug2=input$dname2,units=input$units)
+    print(rmProfile(drMatrix=datasetInput(),drug1=input$dname1,drug2=input$dname2,unit1=input$unit1,unit2=input$unit2)
     )
   })
   
@@ -190,7 +197,7 @@ shinyServer(function(input, output,session){
   })
   
   output$isob <- renderPlot({
-    print(isobologram(drMatrix=datasetInput(),IC50base=input$normal2,units=input$units))
+    print(isobologram(drMatrix=datasetInput(),IC50base=input$normal2,unit1=input$unit1,unit2=input$unit2))
   })
   
   output$ci_range<-renderTable({ ci_range })
@@ -201,7 +208,7 @@ shinyServer(function(input, output,session){
   
   
   output$cindex2 <- renderPlot({
-    print( cIndex2(drMatrix=datasetInput(),IC50base=input$normal3,units=input$units) )
+    print( cIndex2(drMatrix=datasetInput(),IC50base=input$normal3,unit1=input$unit1,unit2=input$unit2) )
   })
   
   output$cshift <- renderPlot({
@@ -218,17 +225,17 @@ shinyServer(function(input, output,session){
   })
   
   output$usresponse <- renderPlot({
-    print(usReponse(drMatrix=datasetInput(),units=input$units))
+    print(usReponse(drMatrix=datasetInput(),unit1=input$unit1,unit2=input$unit2))
   })
   
   
   output$usresponse2 <- renderPlot({
-    print(usReponse2(drMatrix=datasetInput(),units=input$units))
+    print(usReponse2(drMatrix=datasetInput(),unit1=input$unit1,unit2=input$unit2))
   })
   
   
   output$dcontour <- renderPlot({
-    print(dContour(drMatrix=datasetInput()))
+    print(dContour(drMatrix=datasetInput(),unit1=input$unit1,unit2=input$unit2))
   })
   
   output$downloadPlot<- downloadHandler(

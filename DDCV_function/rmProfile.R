@@ -7,8 +7,9 @@
 
 
 
-rmProfile <- function (drMatrix,drug1="Drug1",drug2="Drug2",units="μM")  {
+rmProfile <- function (drMatrix,drug1="Drug1",drug2="Drug2",unit1="μM",unit2="μM")  {
 #    mcols <- terrain.colors(30)
+
     mcols <- colorRampPalette(c("#ec4335","yellow","#35a853"),space="Lab")(30)
 
 #      require(ggplot2)
@@ -22,7 +23,7 @@ rmProfile <- function (drMatrix,drug1="Drug1",drug2="Drug2",units="μM")  {
     theme(plot.title = element_text(face="bold"))
   
   names(drMatrix)<-c("Drug1","Drug2","Fraction")  
-  p<-ggplot(drMatrix,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.3f",(1-Fraction))))+geom_tile(aes(fill=1-Fraction))+geom_text(size=4.5)+scale_fill_gradientn(name = "Effect fraction\n", colours = mcols)+xlab(paste0("\n",drug1," concentration (",units,")"))+ylab(paste0(drug2," concentration (",units,")\n"))+theme_blank_ztw+ggtitle("Response Matrix Profile\n")
+  p<-ggplot(drMatrix,aes(x=factor(round(Drug1,2)),y=factor(round(Drug2,2)),label=sprintf("%1.3f",(1-Fraction))))+geom_tile(aes(fill=1-Fraction))+geom_text(size=4.5)+scale_fill_gradientn(name = "Effect fraction\n", colours = mcols)+xlab(paste0("\n",drug1," concentration (",unit1,")"))+ylab(paste0(drug2," concentration (",unit2,")\n"))+theme_blank_ztw+ggtitle("Response Matrix Profile\n")
   #scale_fill_gradient(name = "Effect fraction\n", low = "#ec4335",high = "#35a853")
   #scale_fill_gradientn(name = "Effect fraction\n", colours = mcols)
   return(p)

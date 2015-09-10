@@ -63,7 +63,7 @@ cShift3 <- function (drMatrix, drug1Base=1, drug2Base=1,IC50base=TRUE) {
     
   }
   
-  title("Curve-Shift by drugB" )
+  title(paste0("Curve-Shift by ",var.name[2]))
   
   lname <- paste0(var.name[2]," \nconcentration")
   if(IC50base){lname <- paste0(var.name[2]," IC50 equivalent\nconcentration")}

@@ -205,7 +205,8 @@ Example
 
 **Parameter Panel**
 
-<img src="https://raw.github.com/xtmgah/DDCV/master/doc/panel.png" width="64" height="256" />
+
+<img src="https://raw.github.com/xtmgah/DDCV/master/doc/panel.png" width="256" height="1024" />
 
 **IC50 Prediction**
 

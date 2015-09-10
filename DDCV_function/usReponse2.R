@@ -5,7 +5,7 @@
 #' @export
 
 
-usReponse2 <- function (drMatrix,units="μM") {
+usReponse2 <- function (drMatrix,unit1="μM",unit2="μM") {
   mcols <- colorRampPalette(c("#ec4335","yellow","#35a853"),space="Lab")(30)
   
   require(ggplot2)
@@ -77,8 +77,8 @@ usReponse2 <- function (drMatrix,units="μM") {
     geom_tile(aes(fill=Alpha))+geom_text(size=4.5)+
     guides(size=FALSE)+
     scale_fill_gradientn(name = "Alpha\n", colours = mcols)+
-    xlab(paste0("\n",drug1," concentration (",units,")"))+
-    ylab(paste0(drug2," concentration (",units,")\n"))+
+    xlab(paste0("\n",drug1," concentration (",unit1,")"))+
+    ylab(paste0(drug2," concentration (",unit2,")\n"))+
     theme_blank_ztw+
     ggtitle("Universal Surface Response (Heatmap)")
   return(p)

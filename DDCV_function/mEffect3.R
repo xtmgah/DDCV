@@ -61,7 +61,7 @@ mEffect3 <- function (drMatrix, drug1Base=1, drug2Base=1, IC50base=FALSE) {
     abline(lm,lty=i,col=cols[i])
   }
   
-  title("Median Effect by drugB" )
+  title(paste0("Median Effect by ",var.name[2]))
   
   par(mar=c(0,0,0,0))
   plot.new()
