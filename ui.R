@@ -124,7 +124,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          p(strong("Document:"),"Manual of this R shiny app." ),
                                          br(),
                                          
-                                         p("If you want to download the realy data in manuscript, please click this link:",a("TMZ_AZD7762_DATA",href="https://raw.github.com/xtmgah/DDCV/master/data/Manuscript_Data.zip")),
+                                         p("If you want to download the realy data in manuscript, please click this link:",downloadLink("downloadData","TMZ_AZD7762_DATA")),
                                          
                                          tags$hr(),
                                          h4("Drug-drug interaction prediction model"),

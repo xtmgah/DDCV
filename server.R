@@ -111,7 +111,7 @@ shinyServer(function(input, output,session){
       tunit2 <- input$unit2
       updateTextInput(session,inputId = "unit1",value =tunit2)
       updateTextInput(session,inputId = "unit2",value =tunit1)
-    
+      
     })
     
   })
@@ -264,6 +264,15 @@ shinyServer(function(input, output,session){
     }
   )
   
+  
+  output$downloadData <- downloadHandler(
+    filename = function(){
+      "Manuscript_Data"
+    },
+    content = function(file) {
+      file.copy("data/Manuscript_Data.zip",file)
+    }
+  )
   
   
 })
