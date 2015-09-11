@@ -246,19 +246,19 @@ shinyServer(function(input, output,session){
     },
     content = function(file) {
       cairo_pdf(file,width = input$w,height = input$h,onefile = T)
-      print(rmProfile(drMatrix=datasetInput(),drug1=input$dname1,drug2=input$dname2,units=input$units))
+      print(rmProfile(drMatrix=datasetInput(),drug1=input$dname1,drug2=input$dname2,unit1=input$unit1,unit2=input$unit2))
       mEffect(drMatrix=datasetInput(),IC50base=input$normal1)
       mEffect2(drMatrix=datasetInput(),IC50base=input$normal1)
       mEffect3(drMatrix=datasetInput(),IC50base=input$normal1)
-      print(isobologram(drMatrix=datasetInput(),IC50base=input$normal2,units=input$units))
+      print(isobologram(drMatrix=datasetInput(),IC50base=input$normal2,unit1=input$unit1,unit2=input$unit2))
       cIndex(drMatrix=datasetInput(),IC50base=input$normal3)
-      print(cIndex2(drMatrix=datasetInput(),IC50base=input$normal3,units=input$units)) 
+      print(cIndex2(drMatrix=datasetInput(),IC50base=input$normal3,unit1=input$unit1,unit2=input$unit2)) 
       print(cShift(drMatrix=datasetInput(),IC50base=input$normal4))
       cShift2(drMatrix=datasetInput(),IC50base=input$normal4)
       cShift3(drMatrix=datasetInput(),IC50base=input$normal4)
-      usReponse(drMatrix=datasetInput(),units=input$units)
-      print(usReponse2(drMatrix=datasetInput(),units=input$units))
-      dContour(drMatrix=datasetInput())
+      usReponse(drMatrix=datasetInput(),unit1=input$unit1,unit2=input$unit2)
+      print(usReponse2(drMatrix=datasetInput(),unit1=input$unit1,unit2=input$unit2))
+      dContour(drMatrix=datasetInput(),unit1=input$unit1,unit2=input$unit2)
       
       dev.off()
     }
