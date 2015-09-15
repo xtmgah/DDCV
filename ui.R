@@ -21,7 +21,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                   ),
                   
                   titlePanel("The Evaluation of Drug-Drug Combination Therapy Effect"),
-                  hr(),
+                  tags$hr(),
                   
                   
                   
@@ -30,7 +30,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                   p("DDCV version: 4.0"),
                   
                   
-                  hr(),
+                  tags$hr(),
                   
                   sidebarLayout(
                     sidebarPanel(width =3, 
@@ -56,8 +56,8 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                  downloadLink('downloadMatrix',' Matrix example',class = "fa fa-arrow-circle-down"),
                                  br(),
                                  downloadLink('downloadColumn3',' Column3 example',class = "fa fa-arrow-circle-down"),
-                                 hr(),
-                                 
+                                 tags$hr(),
+                              
                                  strong("DrugA Name and Unit:"),
                                  fluidRow(
                                    column(8,
@@ -78,7 +78,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                    )
                                  ),
                                  
-                                 hr(),
+                                 tags$hr(),
                                  
                                  checkboxInput('swap',strong('Swap data'),FALSE),
                                  br(),
@@ -93,7 +93,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                  checkboxInput("normal4","Curve-Shift plots",TRUE),
                                  #    checkboxInput("normal7","Universal Surface Response: IC50 Normalization",FALSE),   
                                  
-                                 hr(),
+                                 tags$hr(),
                                  #     submitButton("Update View"),
                                  
                                  #br(),
@@ -103,8 +103,8 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                  numericInput("h", label = "Height (inches):",value = 8,min = 3, max=20,width = 120),
                                  downloadButton('downloadPlot', 'Download All Plots (PDF)',class="btn btn-primary"),
                                  br(),
-                                 br(),
-                                 
+                                
+                                 tags$hr(),
                                  p("Written and designed by Tongwu Zhang, using ",a("Shiny",href="http://shiny.rstudio.com"),"from",a("RStudio",href="http://www.rstudio.com"),"(2015).")
                                  
                     ),
