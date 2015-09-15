@@ -56,6 +56,7 @@ shinyServer(function(input, output,session){
   
   observe({
     if(input$loading){
+      
       updateRadioButtons(session = session,inputId = 'fty',label = 'CSV File Format',choices=list("Matrix (with header)"='shapeA',"Column3 (with header)"='shapeB'),selected='shapeA')
       session$sendCustomMessage(type = "resetFileInputHandler", "file1")
       values$shouldShow =TRUE
@@ -87,8 +88,13 @@ shinyServer(function(input, output,session){
     
     if(input$fty == "shapeA" && !is.null(inFile())){
       tmp <- read.csv(inFile(),header = F, nrows=1)
-      updateTextInput(session,inputId = "dname1",value ="DrugA")
-      updateTextInput(session,inputId = "dname2",value ="DrugB")
+      if(input$loading){
+        updateTextInput(session,inputId = "dname1",value ="AZD7762")
+        updateTextInput(session,inputId = "dname2",value ="TMZ")
+      }else {
+        updateTextInput(session,inputId = "dname1",value ="DrugA")
+        updateTextInput(session,inputId = "dname2",value ="DrugB")
+      }
     }
     
     if(input$fty == "shapeB" && !is.null(inFile())){
@@ -101,18 +107,21 @@ shinyServer(function(input, output,session){
   
   observe({
     input$swap
+    
     isolate({
-      tname1 <- input$dname1
-      tname2 <- input$dname2
-      updateTextInput(session,inputId = "dname1",value =tname2)
-      updateTextInput(session,inputId = "dname2",value =tname1)
-      
-      tunit1 <- input$unit1
-      tunit2 <- input$unit2
-      updateTextInput(session,inputId = "unit1",value =tunit2)
-      updateTextInput(session,inputId = "unit2",value =tunit1)
-      
+      if(!is.null(input$file1) || (input$loading)){
+        tname1 <- input$dname1
+        tname2 <- input$dname2
+        updateTextInput(session,inputId = "dname1",value =tname2)
+        updateTextInput(session,inputId = "dname2",value =tname1)
+        
+        tunit1 <- input$unit1
+        tunit2 <- input$unit2
+        updateTextInput(session,inputId = "unit1",value =tunit2)
+        updateTextInput(session,inputId = "unit2",value =tunit1)
+      }
     })
+    
     
   })
   
@@ -149,7 +158,6 @@ shinyServer(function(input, output,session){
     }
     
   })
-  
   
   
   
@@ -267,7 +275,7 @@ shinyServer(function(input, output,session){
   
   output$downloadData <- downloadHandler(
     filename = function(){
-      "Manuscript_Data"
+      "Manuscript_Data.zip"
     },
     content = function(file) {
       file.copy("data/Manuscript_Data.zip",file)

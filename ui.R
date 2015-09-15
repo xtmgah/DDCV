@@ -28,7 +28,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                   p("**If you have any question about this R shiny app, Please contact",a("Tongwu Zhang",href="mailto:xtmgah@gmail.com")),
                   p("Please cite our paper:",strong("\"Drug-Drug Combination Visualization (DDCV): Evaluation of Drug-Drug Interactions using Shiny by RStudio\""),"when pulishing results analyzed by this shiny app"),
                   p("DDCV version: 4.0"),
-                  p("Note: This app is freely deployed and hosted on ", a("Shinyapps.io",href="http://www.shinyapps.io"),"website. If Something unexpected happened, Please refresh your browser or download this software from GitHub: ",a("https://github.com/xtmgah/DDCV",href="https://github.com/xtmgah/DDCV")),
+                  
                   
                   hr(),
                   
@@ -36,6 +36,11 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                     sidebarPanel(width =3, 
                                  fileInput('file1','Please Choose CSV File:',
                                            accept=c('text/csv','text/comma-separated-value','test/plain')),
+                                 
+                                 radioButtons('fty','CSV File Format',choices=list("Matrix (with header)"='shapeA',"Column3 (with header)"='shapeB'),selected='shapeA'),
+                                 
+                                 #br(),
+                                 
                                  p(strong('Or')),
                                  actionButton('loading',' Load example data',class='btn btn-primary',class = "fa fa-arrow-circle-up" ),
                                  tags$script('
@@ -48,13 +53,10 @@ shinyUI(fluidPage(theme=shinytheme("united"),
       '),
                                  br(),
                                  
-                                 downloadLink('downloadMatrix','Matrix example',class = "fa fa-arrow-circle-down"),
+                                 downloadLink('downloadMatrix',' Matrix example',class = "fa fa-arrow-circle-down"),
                                  br(),
                                  downloadLink('downloadColumn3',' Column3 example',class = "fa fa-arrow-circle-down"),
                                  hr(),
-                                 radioButtons('fty','CSV File Format',choices=list("Matrix (with header)"='shapeA',"Column3 (with header)"='shapeB'),selected='shapeA'),
-                                 
-                                 br(),
                                  
                                  strong("DrugA Name and Unit:"),
                                  fluidRow(
@@ -62,7 +64,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                           textInput('dname1','','DrugA')
                                    ),
                                    column(4,
-                                          textInput('unit1','','µM')
+                                          textInput('unit1','','nM')
                                    )
                                  ),
                                  
@@ -72,16 +74,19 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                           textInput('dname2','','DrugB')
                                    ),
                                    column(4,
-                                          textInput('unit2','','µM')
+                                          textInput('unit2','','nM')
                                    )
                                  ),
                                  
                                  hr(),
                                  
                                  checkboxInput('swap',strong('Swap data'),FALSE),
-                                # br(),
+                                 br(),
                                  
-                                 strong("IC50 normalization for:"),
+                                 tags$u(strong("IC50 normalization for:")),
+                                 br(),
+                                 
+                                 
                                  checkboxInput("normal1","Median Effect plots",TRUE),
                                  checkboxInput("normal2","Isobologram plots",FALSE),
                                  checkboxInput("normal3","Combination Index plots",TRUE),
@@ -91,7 +96,7 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                  hr(),
                                  #     submitButton("Update View"),
                                  
-                                 br(),
+                                 #br(),
                                  p("After you update and check all the results, you can download all plots in pdf format:"),
                                  
                                  numericInput("w", label = "Width (inches):",value = 12,min = 3, max=20,width = 120),
@@ -124,7 +129,12 @@ shinyUI(fluidPage(theme=shinytheme("united"),
                                          p(strong("Document:"),"Manual of this R shiny app." ),
                                          br(),
                                          
-                                         p("If you want to download the realy data in manuscript, please click this link:",downloadLink("downloadData","TMZ_AZD7762_DATA")),
+                                         
+                                         p("Note:"),
+                                         tags$li(p("This app is freely deployed and hosted on ", a("Shinyapps.io",href="http://www.shinyapps.io"),"website. If Something unexpected happened, Please refresh your browser or download this software from GitHub: ",a("https://github.com/xtmgah/DDCV",href="https://github.com/xtmgah/DDCV"))),
+                                         tags$li(p("Auto loading example data is from the combination of TMZ and AZD7762 in the UACC3337 melanoma cell line")),
+                                         tags$li(p("All supplemental data described in the manuscript is avaiable for download here:",downloadLink("downloadData","Download"))),
+                                         
                                          
                                          tags$hr(),
                                          h4("Drug-drug interaction prediction model"),
